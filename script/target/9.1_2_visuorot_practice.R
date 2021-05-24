@@ -12,7 +12,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.1" # version id
 blk_tag <- 2 # block tag
-cond <- "visuorot" # condition. Also the main part of filename
+cond <- "visuorot_practice" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 

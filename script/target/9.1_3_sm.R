@@ -12,7 +12,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.1" # version id
 blk_tags <- 3 # block tag
-cond <- "sm" # condition. Also the main part of filename
+cond <- "sm_part" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -20,7 +20,12 @@ pos_tag <- ""
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
 rot_size <- 0 # visual rotation size (degree)
-ph0 = 40 # trials in phase 0 (Familiarization/Pre-training)
+
+ph0_all <- 30 # trials always with cursor
+ph0_half <- 30 # trials with cursor 50% of M trials  
+ph0_no <- 20 # trials with no cursor in M triasl
+
+ph0 = ph0_all + ph0_half + ph0_no # trials in phase 0 (Familiarization/Pre-training) # 30 trials (15 cycles) with cursor, 30 with 50% cursor, 20 with no cursor
 ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
 ph2 = 0 # trials in phase 2 (Pre-Probe)
 ph3 = 0 # trials in phase 3 (washouts before Train)
@@ -55,9 +60,15 @@ show_cur[s_tri== 1] <- 2
 trial_type[s_tri == 1] <- 2
 trial_type[s_tri == 0] <- 3
 
-# give refresher trials every 5 m trials
+# modify cursor visibility in M
+
 tmp_idx <- 1:num_tri
-show_cur[m_tri == 1 & tmp_idx %% 10 == 6] <- 2
+
+m_tri_half_idx <- seq((ph0_all+2),(ph0_all+ph0_half),2)
+
+show_cur[tmp_idx < ph0_all] <- 2
+show_cur[sample(m_tri_half_idx,ceiling(length(m_tri_half_idx)/2), replace = F)] <- 2
+
 
 tmod_v <- seq(-15,15,3) # set of modification values on target direction
 # source("script/target/subscript/generate_t_deg_mod.R") #randomize only m trials, so not use this
@@ -106,7 +117,7 @@ seq.tgt <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                  max_score, difficulty, trial_type, blk_phase)
 
 for (blk_tag in blk_tags){
-  write.table(seq.tgt,sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
+  write.table(seq.tgt,sprintf("script/target/output/part/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
 }
 
