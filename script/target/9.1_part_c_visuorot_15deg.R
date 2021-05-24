@@ -12,22 +12,22 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.1" # version id
 blk_tag <- 0 # block tag
-cond <- "washout" # condition. Also the main part of filename
+cond <- "visuorot" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 0 # visual rotation size (degree)
+rot_size <- 7 # visual rotation size (degree)
 ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
 ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
 ph2 = 0 # trials in phase 2 (Pre-Probe)
 ph3 = 0 # trials in phase 3 (washouts before Train)
 ph4 = 0 # trials in phase 4 (Train)
-ph5 = 10 # trials in phase 5 (Post-Train Washout)
+ph5 = 0 # trials in phase 5 (Post-Train Washout)
 ph6 = 0 # trials in phase 6 (Post-Probe)
-ph7 = 0 # trials in phase 7 (visuomotor)
+ph7 = 15 # trials in phase 7 (visuomotor)
 ph8 = 0 # trials in phase 8 (reward-based)
 ph9 = 0 # trials in phase 9 (extra)
 
@@ -36,9 +36,9 @@ num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
 
 tmod_v <- seq(-15,15,3) # set of modification values on target direction
 source("script/target/subscript/generate_t_deg_mod.R") #randomize only m trials, so not use this
-t_deg <-  rep(t_deg_ref, num_tri) + t_deg_mod[1:num_tri]
+t_deg <-  rep(t_deg_ref, num_tri) + t_deg_mod
 
-rot_degree <- rep(0,num_tri)
+rot_degree <-rot_size*c(rep(0,5),rep(1,10)) # hard code
 show_arc <- rep(0,num_tri)  # no arc
 show_cur <- rep(2,num_tri)  # always cursor
 show_score <- rep(0,num_tri)  # no score
@@ -47,8 +47,6 @@ min_score <- rep(0,num_tri)
 max_score <- rep(0,num_tri) 
 difficulty <- rep(1,num_tri)
 trial_type <- rep(1,num_tri) 
-
-
 
 ### These parameters should be the same across the task, so no need to edit in each script
 field <-  rep(0,num_tri)  # No FF in this task
