@@ -13,7 +13,7 @@ RMAMem v8.1 target scripts
 # 8 = channel_B11: channel force (not really used. maybe just remove)
 # 9 = gain for spring force during movement. Usually set to 0  (except "pseudo" isometric force task, maybe)
 # 10 = rot_degree: cursor rotation in degree
-# 11 = show_arc: whether to present an arc instead of a point target. 2 will hide both arc and target (i.e., no-target)
+# 11 = show_arc: whether to present an arc instead of a point target. 2 will remove the arc at movement initiation. 3 will give aiming markers on the sides. 
 # 12 = show_cur: whether to show cursor. 0=no, 1=online, 2=slit (specifically for this task)
 # 13 = show_score: whether to show score 
 # 14 = training_type: type of meta-learning training. 1: Lrn, 2: NLrn, 3: Reward-based (not a meta-learning training, but rather a control condition). Baseline: 99

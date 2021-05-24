@@ -11,25 +11,22 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.1" # version id
-blk_tags <- 3 # block tag
-cond <- "sm_part" # condition. Also the main part of filename
+blk_tags <- 0 # block tag
+cond <- "train_lrn_aim_z" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 0 # visual rotation size (degree)
+rot_size <- 7 # visual rotation size (degree)
+tpc <- spc_te + mpc_te # trials per cycle
 
-ph0_all <- 30 # trials always with cursor
-ph0_half <- 30 # trials with cursor 50% of M trials  
-ph0_no <- 20 # trials with no cursor in M triasl
-
-ph0 = ph0_all + ph0_half + ph0_no # trials in phase 0 (Familiarization/Pre-training) # 30 trials (15 cycles) with cursor, 30 with 50% cursor, 20 with no cursor
+ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
 ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
 ph2 = 0 # trials in phase 2 (Pre-Probe)
 ph3 = 0 # trials in phase 3 (washouts before Train)
-ph4 = 0 # trials in phase 4 (Train)
+ph4 = tpc*cpb_te # trials in phase 4 (Train)
 ph5 = 0 # trials in phase 5 (Post-Train Washout)
 ph6 = 0 # trials in phase 6 (Post-Probe)
 ph7 = 0 # trials in phase 7 (visuomotor)
@@ -39,47 +36,51 @@ ph9 = 0 # trials in phase 9 (extra)
 blk_phase <- c(rep(0,ph0),rep(1,ph1),rep(2,ph2),rep(3,ph3),rep(4,ph4),rep(5,ph5),rep(6,ph6),rep(7,ph7),rep(8,ph8),rep(9,ph9))
 num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
 
-rot_degree <- rep(0,num_tri)
-train_type <- rep(0,num_tri)  
-min_score <- rep(0,num_tri)  
+min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
 difficulty <- rep(1,num_tri)
-show_score <- rep(0,num_tri)
 
-s_tri <- rep(c(1,0),ph0/2)
-m_tri <- rep(c(0,1),ph0/2)
+train_type <- rep(1,num_tri) # This will be replaced, so put some number that is easy to notice in case replacement is not done.
+
+s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te) # flag s trial
+m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te) # flag m trial
+
+
+## Rotation pattern in Train. Hard coding to mimic the sequence in the original version
+# rot_pattern <- c(-1,1,1,-1,1,1,-1,-1,-1,
+#                  1,1,-1,1,1,1,-1,1,1,-1,
+#                  -1,-1,-1,-1,1,1,-1,-1,1,
+#                  1,-1
+# )
+
+rot_pattern <- rep(c(-1,1,1,-1,-1,1,-1,-1,1,1),cpb_te/10) # z ~ 0.1
+# now changed the pattern to avoid the same rotation 5 times 
 
 # initialize
 show_arc <- rep(0,num_tri)
 show_cur <- rep(0,num_tri)  
 trial_type <- rep(0,num_tri) 
+rot_degree <- rep(0,num_tri)
+show_score <- rep(0,num_tri)
 
-# assign
-show_arc[s_tri == 1] <- 2
-show_cur[s_tri== 1] <- 2
+# assign appropriate values to each type of trial
+rot_degree[s_tri == 1] <- rot_size*rot_pattern
+show_arc[s_tri == 1] <- 0
+show_arc[m_tri == 1] <- 3
+show_cur[s_tri == 1] <- 2
 trial_type[s_tri == 1] <- 2
-trial_type[s_tri == 0] <- 3
+trial_type[m_tri == 1] <- 3
+show_score[m_tri == 1] <- 1
+# show_score[m_tri == 1] <- 0
 
-# modify cursor visibility in M
-
-tmp_idx <- 1:num_tri
-
-m_tri_half_idx <- seq((ph0_all+2),(ph0_all+ph0_half),2)
-
-show_cur[tmp_idx < ph0_all] <- 2
-show_cur[sample(m_tri_half_idx,ceiling(length(m_tri_half_idx)/2), replace = F)] <- 2
 
 
 tmod_v <- seq(-15,15,3) # set of modification values on target direction
-# source("script/target/subscript/generate_t_deg_mod.R") #randomize only m trials, so not use this
-
-## Generate a random target-direction modifier
-
 num_tmod <- length(tmod_v) # number of modifying direction
 
 # Randomize within each "chunk" so that there won't be a chunk of the same rotation by chance after randomization 
-t_deg_mod = rep(0,sum(m_tri)) # Initialize
-num_rep =  sum(m_tri)/length(tmod_v) # number of trials per one mod value
+t_deg_mod = rep(0,num_tri) # Initialize
+num_rep =  num_tri/length(tmod_v) # number of trials per one mod value
 
 idx = 1
 for (cyc in 1:num_rep){
@@ -87,18 +88,15 @@ for (cyc in 1:num_rep){
   idx = idx+num_tmod
 }
 
-# fill last few trials when the total number of trials cannot be divided by the number of tmod.
-if (sum(m_tri)%%num_tmod != 0){
-  remaining_tri <- idx:sum(m_tri)
+# Add some 0 (no mod) just in case the total number of trials cannot be divided by the number of tmod.
+if (num_tri%%num_tmod != 0){
+  remaining_tri <- idx:num_tri
   t_deg_mod[remaining_tri] <- sample(tmod_v, length(remaining_tri))
   warning("Total number of trial cannot be divided by the number of target directions. The number of trials is not the same across target directions")
 } 
 
 t_deg_raw <- rep(t_deg_ref, num_tri)
-t_deg_raw[m_tri == 1] = t_deg_raw[m_tri == 1]  + t_deg_mod
-t_deg <- t_deg_raw
-
-
+t_deg <-  rep(t_deg_ref, num_tri) + t_deg_mod
 
 ### These parameters should be the same across the task, so no need to edit in each script
 field <-  rep(0,num_tri)  # No FF in this task
