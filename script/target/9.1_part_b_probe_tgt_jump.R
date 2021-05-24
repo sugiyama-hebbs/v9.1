@@ -11,9 +11,9 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "8.1" # version id
+version_id = "9.1" # version id
 blk_tags <- 0 # block tag
-cond <- "taskerr_probe_multitgt_15deg_no_arc" # condition. Also the main part of filename
+cond <- "probe_tgt_jump_part" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -57,7 +57,7 @@ show_score <- rep(0,num_tri)
 
 # assign appropriate values to each type of trial
 rot_degree <- rot_size*rot_pattern
-show_arc[s_tri == 1] <- 0
+show_arc[s_tri == 1] <- 4
 show_cur[s_tri == 1] <- 2
 trial_type[s_tri == 1] <- 2
 trial_type[m_tri == 1] <- 3
