@@ -1,0 +1,14 @@
+# Set task-wide parameters (parameters that are the same across the entire task)
+t_deg_ref <- 90 # reference target direction (if target direction is adjusted, the adjustment is made with respect to this direction)
+t_radius_ref <- 0.1 # reference target radius (m)
+wait_min <- 600 # minimum wait time (ms)
+addwait_max <- 600 # additional max wait time. An additional time for each trial is randomly selected from a uniform distribution from 0 to this number.  
+
+spc <- 1 # s trial per cycle
+mpc <- 4 # m trial per cycle
+cpb <- 30 # cycles per block
+
+# for task-error version
+spc_te <- 1 # s trial per cycle
+mpc_te <- 1 # m trial per cycle
+cpb_te <- 60 # cycles per block
