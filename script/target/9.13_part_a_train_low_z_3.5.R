@@ -12,7 +12,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.13" # version id
 blk_tags <- 0 # block tag
-cond <- "train_lrn_low_z_3.5" # condition. Also the main part of filename
+cond <- "train_low_z_3.5" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -40,7 +40,8 @@ min_score <- rep(-20,num_tri)
 max_score <- rep(0,num_tri) 
 difficulty <- rep(0.5,num_tri)
 
-train_type <- rep(1,num_tri) # This will be replaced, so put some number that is easy to notice in case replacement is not done.
+train_type_lrn <- rep(1,num_tri) 
+train_type_nlrn <- rep(2,num_tri) 
 
 s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te) # flag m trial
@@ -110,13 +111,21 @@ channel_b11 <- rep(0,num_tri)  # no FF, so 0 bvalue
 gain <- rep(0,num_tri)  # no FF, so 0 bvalue
 
 # combine
-seq.tgt <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
+
+seq.tgt_lrn <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
                  bval, channel_k11, channel_b11, gain, rot_degree,
-                 show_arc, show_cur, show_score, train_type, min_score,
+                 show_arc, show_cur, show_score, train_type_lrn, min_score,
                  max_score, difficulty, trial_type, blk_phase)
 
+seq.tgt_nlrn <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
+                     bval, channel_k11, channel_b11, gain, rot_degree,
+                     show_arc, show_cur, show_score, train_type_nlrn, min_score,
+                     max_score, difficulty, trial_type, blk_phase)
+
 for (blk_tag in blk_tags){
-  write.table(seq.tgt,sprintf("script/target/output/part/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
+  write.table(seq.tgt_lrn,sprintf("script/target/output/part/%d%s_%s%s_lrn_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
+              row.names = F, col.names = F, sep = " ")
+  write.table(seq.tgt_nlrn,sprintf("script/target/output/part/%d%s_%s%s_nlrn_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
 }
 
