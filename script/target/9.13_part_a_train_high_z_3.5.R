@@ -26,7 +26,7 @@ ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
 ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
 ph2 = 0 # trials in phase 2 (Pre-Probe)
 ph3 = 0 # trials in phase 3 (washouts before Train)
-ph4 = tpc*cpb_te # trials in phase 4 (Train)
+ph4 = tpc*cpb_te_short # trials in phase 4 (Train)
 ph5 = 0 # trials in phase 5 (Post-Train Washout)
 ph6 = 0 # trials in phase 6 (Post-Probe)
 ph7 = 0 # trials in phase 7 (visuomotor)
@@ -43,8 +43,8 @@ difficulty <- rep(0.5,num_tri)
 train_type_lrn <- rep(1,num_tri) 
 train_type_nlrn <- rep(2,num_tri) 
 
-s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te) # flag s trial
-m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te) # flag m trial
+s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_short) # flag s trial
+m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_short) # flag m trial
 
 
 ## Rotation pattern in Train. Hard coding to mimic the sequence in the original version
@@ -54,7 +54,7 @@ m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te) # flag m trial
 #                  1,-1
 # )
 
-rot_pattern <- rep(c(rep(-1,4),rep(1,3),rep(-1,3),rep(1,4),rep(-1,3),rep(1,3)),cpb_te/20) # z ~ 0.1
+rot_pattern <- rep(c(rep(-1,8),rep(1,7),rep(-1,7),rep(1,8)),cpb_te_short/30) # z ~ 0.1
 # now changed the pattern to avoid the same rotation 5 times 
 
 # initialize
@@ -120,10 +120,17 @@ seq.tgt_nlrn <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                       show_arc, show_cur, show_score, train_type_nlrn, min_score,
                       max_score, difficulty, trial_type, blk_phase)
 
+seq.tgt_base <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
+                      bval, channel_k11, channel_b11, gain, rot_degree,
+                      show_arc, show_cur, rep(0,num_tri), rep(0,num_tri), rep(0,num_tri),
+                      rep(0,num_tri), difficulty, trial_type, blk_phase)
+
 for (blk_tag in blk_tags){
   write.table(seq.tgt_lrn,sprintf("script/target/output/part/%d%s_%s%s_lrn_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
   write.table(seq.tgt_nlrn,sprintf("script/target/output/part/%d%s_%s%s_nlrn_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
+              row.names = F, col.names = F, sep = " ")
+  write.table(seq.tgt_base,sprintf("script/target/output/part/%d%s_%s%s_baseline_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
 }
 

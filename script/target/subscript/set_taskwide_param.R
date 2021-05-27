@@ -17,3 +17,4 @@ spc_te <- 1 # s trial per cycle
 mpc_te <- 1 # m trial per cycle
 cpb_te <- 60 # cycles per block
 cpb_te_vary_rot <- 16 # cycles per block
+cpb_te_short <- 30 # cycles per block
