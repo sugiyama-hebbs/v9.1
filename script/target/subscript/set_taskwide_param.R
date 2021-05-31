@@ -19,3 +19,4 @@ cpb_te <- 60 # cycles per block
 cpb_te_vary_rot <- 16 # cycles per block
 cpb_te_short <- 30 # cycles per block
 cpb_te_9.14 <- 10 # cycles per block
+cpb_9.2 <- 10 # cycles per block
