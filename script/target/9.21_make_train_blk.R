@@ -1,7 +1,7 @@
 # make a train block from parts
 
 
-seq_probe <- read.csv("script/target/output/part/0_probe_part_test_7_9.2.txt", header = F, sep=" ")
+seq_probe <- read.csv("script/target/output/part/0_probe_part_9.2.txt", header = F, sep=" ")
 seq_lrn <- read.csv("script/target/output/part/0_train_low_z_3.5_lrn_9.21.txt", header = F, sep=" ")
 seq_nlrn <- read.csv("script/target/output/part/0_train_low_z_3.5_nlrn_9.21.txt", header = F, sep=" ")
 

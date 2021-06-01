@@ -78,7 +78,8 @@ if (num_tri%%num_tmod != 0){
 } 
 
 t_deg_raw <- rep(t_deg_ref, num_tri)
-t_deg_raw[m_tri == 1] <- t_deg_ref + t_deg_mod
+# t_deg_raw[m_tri == 1] <- t_deg_ref + t_deg_mod
+t_deg_raw <- t_deg_ref + t_deg_mod
 t_deg <- t_deg_raw # now apply modification values
 
 
