@@ -20,53 +20,43 @@ pos_tag <- ""
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
 rot_size <- 3.5 # visual rotation size (degree)
+tpc <- 7# spc_te + mpc_te # trials per cycle
 
+ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
+ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
+ph2 = 0 # trials in phase 2 (Pre-Probe)
+ph3 = 0 # trials in phase 3 (washouts before Train)
+ph4 = tpc*cpb_9.2 # cycles per block # trials in phase 4 (Train)
+ph5 = 0 # trials in phase 5 (Post-Train Washout)
+ph6 = 0 # trials in phase 6 (Post-Probe)
+ph7 = 0 # trials in phase 7 (visuomotor)
+ph8 = 0 # trials in phase 8 (reward-based)
+ph9 = 0 # trials in phase 9 (extra)
 
-# s_tri_null_length <- c(4,5,5,4,6,6,4,6,4,6) # its mean should be an integer
-s_tri_null_length <- c(4,5,5,6,6,4) # its mean should be an integer
+blk_phase <- c(rep(0,ph0),rep(1,ph1),rep(2,ph2),rep(3,ph3),rep(4,ph4),rep(5,ph5),rep(6,ph6),rep(7,ph7),rep(8,ph8),rep(9,ph9))
+num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
 
-cps <- length(s_tri_null_length) # number of cycles per 1 set
-
-# rot_pattern <- c(-1,1,-1,1,-1,1,1,-1,-1,1) # z ~ 0.1
-rot_pattern <- c(-1,1,-1,-1,1,1) # z ~ 0.1
-
-stopifnot(length(rot_pattern) == cps)
-
-tpc <- mean(s_tri_null_length) + 2 # s_tri_null + rot_s + m
-
-num_tri <- tpc * cps
-
-s_tri_null <- rep(0,num_tri)
-s_tri_rot <- rep(0,num_tri)
-m_tri <- rep(0,num_tri)
-
-k <- 1
-for (i in 1:cps){
-  s_tri_null[k:(k+s_tri_null_length[i]-1)] <- 1
-  s_tri_rot[k+s_tri_null_length[i]] <- 1
-  m_tri[k+s_tri_null_length[i]+1] <- 1
-  k <- k+s_tri_null_length[i]+2
-}
-
-
-# 
-# ph4 = tpc*cpb_9.2 # cycles per block # trials in phase 4 (Train)
-# ph5 = 0 # trials in phase 5 (Post-Train Washout)
-# ph6 = 0 # trials in phase 6 (Post-Probe)
-# ph7 = 0 # trials in phase 7 (visuomotor)
-# ph8 = 0 # trials in phase 8 (reward-based)
-# ph9 = 0 # trials in phase 9 (extra)
-# 
-# blk_phase <- c(rep(0,ph0),rep(1,ph1),rep(2,ph2),rep(3,ph3),rep(4,ph4),rep(5,ph5),rep(6,ph6),rep(7,ph7),rep(8,ph8),rep(9,ph9))
-# num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
-
-blk_phase <- rep(4, num_tri)
 min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
 difficulty <- rep(0.5,num_tri)
 
 train_type_lrn <- rep(1,num_tri) 
 train_type_nlrn <- rep(2,num_tri) 
+
+s_tri <- rep(c(1,0,rep(1,5)),cpb_9.2) # flag s trial
+m_tri <- rep(c(0,1,rep(0,5)),cpb_9.2) # flag m trial
+s_tri_rot <- rep(c(1,rep(0,6)),cpb_9.2)
+
+## Rotation pattern in Train. Hard coding to mimic the sequence in the original version
+# rot_pattern <- c(-1,1,1,-1,1,1,-1,-1,-1,
+#                  1,1,-1,1,1,1,-1,1,1,-1,
+#                  -1,-1,-1,-1,1,1,-1,-1,1,
+#                  1,-1
+# )
+
+# rot_pattern <- rep(c(rep(-1,4),rep(1,3),rep(-1,3),rep(1,4),rep(-1,3),rep(1,3)),cpb_te/20) # z ~ 0.1
+rot_pattern <- rep(c(-1,1,-1,1,-1,1,1,-1,-1,1),cpb_9.2/10) # z ~ 0.1
+# now changed the pattern to avoid the same rotation 5 times 
 
 # initialize
 show_arc <- rep(0,num_tri)
@@ -77,10 +67,10 @@ show_score <- rep(0,num_tri)
 
 # assign appropriate values to each type of trial
 rot_degree[s_tri_rot == 1] <- rot_size*rot_pattern
-show_arc[s_tri_rot == 1 | s_tri_null == 1] <- 4
+show_arc[s_tri == 1] <- 4
 show_arc[m_tri == 1] <- 5
-show_cur[s_tri_rot == 1 | s_tri_null == 1] <- 2
-trial_type[s_tri_rot == 1 | s_tri_null == 1] <- 2
+show_cur[s_tri == 1] <- 2
+trial_type[s_tri == 1] <- 2
 trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
