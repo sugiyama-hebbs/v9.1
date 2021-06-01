@@ -10,16 +10,16 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.21" # version id
+version_id = "9.22" # version id
 blk_tags <- 0 # block tag
-cond <- "train_low_z_3.5" # condition. Also the main part of filename
+cond <- "train_low_z_5" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 3.5 # visual rotation size (degree)
+rot_size <- 5 # visual rotation size (degree)
 
 
 # s_tri_null_length <- c(4,5,5,4,6,6,4,6,4,6) # its mean should be an integer
