@@ -34,7 +34,7 @@ cps <- length(rot_pattern)
 
 # tpc <- mean(s_tri_null_length) + 2 # s_tri_null + rot_s + m
 
-tpc <- 10
+tpc <- 7
 num_tri <- tpc * cps
 
 # s_tri_null <- rep(0,num_tri)
