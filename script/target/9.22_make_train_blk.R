@@ -18,3 +18,18 @@ write.table(seq.tgt_nlrn,sprintf("script/target/output/train_nlrn_9.22.txt"),
 
 write.table(seq.tgt_strat,sprintf("script/target/output/train_strat_9.22.txt"),
             row.names = F, col.names = F, sep = " ")
+
+
+
+seq.tgt_lrn_no_pre <- rbind(seq_lrn,seq_probe)
+seq.tgt_nlrn_no_pre <- rbind(seq_nlrn,seq_probe)
+seq.tgt_strat_no_pre <- rbind(seq_strat,seq_probe)
+
+write.table(seq.tgt_lrn_no_pre,sprintf("script/target/output/train_lrn_no_pre_9.22.txt"),
+            row.names = F, col.names = F, sep = " ")
+
+write.table(seq.tgt_nlrn_no_pre,sprintf("script/target/output/train_nlrn_no_pre_9.22.txt"),
+            row.names = F, col.names = F, sep = " ")
+
+write.table(seq.tgt_strat_no_pre,sprintf("script/target/output/train_strat_no_pre_9.22.txt"),
+            row.names = F, col.names = F, sep = " ")
