@@ -117,7 +117,7 @@ t_deg <-  rep(t_deg_ref, num_tri) + t_deg_mod
 field <-  rep(0,num_tri)  # No FF in this task
 apply_field <-  rep(0,num_tri)
 t_radius <- rep(t_radius_ref, num_tri)
-wait_time <-  (wait_min_mod + ceiling(runif(num_tri,0,addwait_max_mod)))/1000 # Wait time
+wait_time <-  (wait_min + ceiling(runif(num_tri,0,addwait_max)))/1000 # Wait time
 bval <- rep(0,num_tri)  # no FF, so 0 bvalue
 channel_k11 <- rep(0,num_tri)  # no FF, so 0 bvalue
 channel_b11 <- rep(0,num_tri)  # no FF, so 0 bvalue

@@ -33,3 +33,35 @@ write.table(seq.tgt_nlrn_no_pre,sprintf("script/target/output/train_nlrn_no_pre_
 
 write.table(seq.tgt_strat_no_pre,sprintf("script/target/output/train_strat_no_pre_9.24.txt"),
             row.names = F, col.names = F, sep = " ")
+
+
+seq_lrn_break <- seq_lrn
+seq_lrn_break[1,20] = 1
+seq_nlrn_break <- seq_nlrn
+seq_nlrn_break[1,20] = 1
+
+seq.tgt_lrn_to_nlrn <- rbind(seq_probe,
+                             seq_lrn,seq_probe,
+                             seq_lrn_break,seq_probe,
+                             seq_lrn_break,seq_probe,
+                             seq_nlrn_break,seq_probe,
+                             seq_nlrn_break,seq_probe,
+                             seq_nlrn_break,seq_probe)
+
+
+
+seq.tgt_nlrn_to_lrn <- rbind(seq_probe,
+                             seq_nlrn,seq_probe,
+                             seq_nlrn_break,seq_probe,
+                             seq_nlrn_break,seq_probe,
+                             seq_lrn_break,seq_probe,
+                             seq_lrn_break,seq_probe,
+                             seq_lrn_break,seq_probe)
+
+
+write.table(seq.tgt_lrn_to_nlrn,sprintf("script/target/output/train_lrn3_to_nlrn3_9.24.txt"),
+            row.names = F, col.names = F, sep = " ")
+
+write.table(seq.tgt_nlrn_to_lrn,sprintf("script/target/output/train_nlrn3_to_lrn3_9.24.txt"),
+            row.names = F, col.names = F, sep = " ")
+
