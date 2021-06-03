@@ -10,9 +10,9 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.252" # version id
+version_id = "9.253" # version id
 blk_tags <- 0 # block tag
-cond <- "train_high_z_5" # condition. Also the main part of filename
+cond <- "train_mid_z_5" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -24,7 +24,15 @@ rot_size <- 5 # visual rotation size (degree)
 s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_9.25) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_9.25) # flag m trial
 
-rot_pattern <- rep(c(rep(1,10),rep(-1,8),rep(1,7),rep(-1,7),rep(1,8),rep(-1,10)),cpb_te_9.25/50) # z ~ 0.1
+# rot_pattern <- rep(c(rep(1,10),rep(-1,8),rep(1,7),rep(-1,7),rep(1,8),rep(-1,10)),cpb_te_9.25/50) # z ~ 0.1
+rot_pattern <- rep(c(rep(1,5),rep(-1,3),
+                     rep(1,4),rep(-1,4),
+                     rep(1,3),rep(-1,5),
+                     rep(1,4),rep(-1,4),
+                     rep(1,4),rep(-1,4),
+                     rep(1,5),rep(-1,5)                 
+                     ),
+                   cpb_te_9.25/50) # z ~ 0.1
 
 num_tri <- (spc_te+mpc_te)*cpb_te_9.25
 # k <- 1
@@ -103,7 +111,7 @@ apply_field <-  rep(0,num_tri)
 t_radius <- rep(t_radius_ref, num_tri)
 wait_time <-  (wait_min + ceiling(runif(num_tri,0,addwait_max_mod2)))/1000 # Wait time
 
-wait_time[s_tri == 1] <- wait_time[s_tri == 1] + 3.0
+wait_time[s_tri == 1] <- wait_time[s_tri == 1] + 2.0
 wait_time[m_tri == 1] <- wait_time[m_tri == 1] - 0.2
 
 bval <- rep(0,num_tri)  # no FF, so 0 bvalue
