@@ -6,6 +6,7 @@ addwait_max <- 600 # additional max wait time. An additional time for each trial
 
 wait_min_mod <- 800 # minimum wait time (ms)
 addwait_max_mod <- 600 # additional max wait time. An additional time for each trial is randomly selected from a uniform distribution from 0 to this number.  
+addwait_max_mod2 <- 300 # additional max wait time. An additional time for each trial is randomly selected from a uniform distribution from 0 to this number.  
 
 
 spc <- 1 # s trial per cycle
