@@ -86,7 +86,7 @@ show_arc[m_tri == 1] <- 5
 show_cur[s_tri == 1] <- 2
 trial_type[s_tri == 1] <- 2
 trial_type[m_tri == 1] <- 3
-show_score[m_tri] <- 2
+show_score[m_tri == 1] <- 2
 show_score[m_tri_last == 1] <- 1
 # show_score[m_tri == 1] <- 0
 
