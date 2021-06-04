@@ -25,14 +25,18 @@ s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_9.25) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_9.25) # flag m trial
 
 # rot_pattern <- rep(c(rep(1,10),rep(-1,8),rep(1,7),rep(-1,7),rep(1,8),rep(-1,10)),cpb_te_9.25/50) # z ~ 0.1
-rot_pattern <- rep(c(rep(1,5),rep(-1,3),
-                     rep(1,4),rep(-1,4),
-                     rep(1,3),rep(-1,5),
-                     rep(1,4),rep(-1,4),
-                     rep(1,4),rep(-1,4),
-                     rep(1,5),rep(-1,5)                 
+rot_pattern <- rep(c(rep(1,2),rep(-1,2),
+                     rep(1,3),rep(-1,3),
+                     rep(1,1),rep(-1,1),
+                     rep(1,2),rep(-1,2),                     
+                     rep(1,2),rep(-1,2),
+                     rep(1,3),rep(-1,3),
+                     rep(1,2),rep(-1,2),                     
+                     rep(1,2),rep(-1,2),                     
+                     rep(1,1),rep(-1,1),
+                     rep(1,2),rep(-1,2)
                      ),
-                   cpb_te_9.25/50) # z ~ 0.1
+                   cpb_te_9.25/40) # z ~ 0.1
 
 num_tri <- (spc_te+mpc_te)*cpb_te_9.25
 # k <- 1
