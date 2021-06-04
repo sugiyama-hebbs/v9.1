@@ -12,7 +12,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
 version_id = "9.253" # version id
 blk_tags <- 0 # block tag
-cond <- "train_mid_z_5" # condition. Also the main part of filename
+cond <- "train_0.7_z_5" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -25,18 +25,14 @@ s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_9.25_mod) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_9.25_mod) # flag m trial
 
 # rot_pattern <- rep(c(rep(1,10),rep(-1,8),rep(1,7),rep(-1,7),rep(1,8),rep(-1,10)),cpb_te_9.25_mod/50) # z ~ 0.1
-rot_pattern <- rep(c(rep(1,2),rep(-1,2),
+rot_pattern <- rep(c(rep(1,3),rep(-1,3),
                      rep(1,3),rep(-1,3),
-                     rep(1,1),rep(-1,1),
-                     rep(1,2),rep(-1,2),                     
-                     rep(1,2),rep(-1,2),
+                     rep(1,4),rep(-1,4),
+                     rep(1,3),rep(-1,3),                     
                      rep(1,3),rep(-1,3),
-                     rep(1,2),rep(-1,2),                     
-                     rep(1,2),rep(-1,2),                     
-                     rep(1,1),rep(-1,1),
-                     rep(1,2),rep(-1,2)
+                     rep(1,4),rep(-1,4)
                      ),
-                   cpb_te_9.25_mod/40) # z ~ 0.1
+                   cpb_te_9.25_mod/40)
 
 num_tri <- (spc_te+mpc_te)*cpb_te_9.25_mod
 # k <- 1

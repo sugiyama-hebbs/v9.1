@@ -10,7 +10,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.253" # version id
+version_id = "9.254" # version id
 blk_tags <- 0 # block tag
 cond <- "train_mid_z_5" # condition. Also the main part of filename
 pre_tag <- ""
@@ -39,6 +39,11 @@ rot_pattern <- rep(c(rep(1,2),rep(-1,2),
                    cpb_te_9.25_mod/40) # z ~ 0.1
 
 num_tri <- (spc_te+mpc_te)*cpb_te_9.25_mod
+
+
+rot_switch_raw <- rot_pattern[2:(cpb_te_9.25_mod)] - rot_pattern[1:(cpb_te_9.25_mod-1)]
+rot_switch <- c(1,rot_switch_raw != 0)
+
 # k <- 1
 # for (i in 1:cps){
 #   s_tri_null[k:(k+s_tri_null_length[i]-1)] <- 1
@@ -84,6 +89,8 @@ trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
 
+s_tri_rot_switch <- rep(0,num_tri)
+s_tri_rot_switch[s_tri == 1] <- rot_switch
 
 
 tmod_v <- seq(-15,15,3) # set of modification values on target direction
@@ -115,7 +122,7 @@ apply_field <-  rep(0,num_tri)
 t_radius <- rep(t_radius_ref, num_tri)
 wait_time <-  (wait_min + ceiling(runif(num_tri,0,addwait_max_mod2)))/1000 # Wait time
 
-wait_time[s_tri == 1] <- wait_time[s_tri == 1] + 2.0
+wait_time[s_tri_rot_switch == 1] <- wait_time[s_tri_rot_switch == 1] + 2.0
 wait_time[m_tri == 1] <- wait_time[m_tri == 1] - 0.2
 
 bval <- rep(0,num_tri)  # no FF, so 0 bvalue
