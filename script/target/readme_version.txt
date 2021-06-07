@@ -16,3 +16,6 @@ RMAmem v9 tgt version note
   .254 modified wait-time only when ptb switch + reduced z-val
 
 9.26 1S(n)M, average M score at the end of each cycle (different python version)
+
+
+9.27 1S1M, include Null-S (in this case, score calculation will be always NLrn)
