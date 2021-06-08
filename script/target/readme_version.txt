@@ -24,4 +24,7 @@ RMAmem v9 tgt version note
   .274 longer M (higher z)
   
 9.28 1S1M, varying rotation size (but "slope" of score changes remain fixed)
-  .282 delay between cycles
+  .282 delay (0.8 -> 1sec) between cycles
+  .283 .282 + 5-deg probe
+  .284 longer delay between cycles, 5-deg
+  .285 .284 - delay
