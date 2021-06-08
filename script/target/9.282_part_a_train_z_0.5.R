@@ -89,7 +89,7 @@ apply_field <-  rep(0,num_tri)
 t_radius <- rep(t_radius_ref, num_tri)
 wait_time <-  (wait_min + ceiling(runif(num_tri,0,addwait_max_mod)))/1000 # Wait time
 
-wait_time[s_tri == 1] <- wait_time[s_tri == 1] + 0.8
+wait_time[s_tri == 1] <- wait_time[s_tri == 1] + 1.0
 wait_time[m_tri == 1] <- wait_time[m_tri == 1]
 
 bval <- rep(0,num_tri)  # no FF, so 0 bvalue
