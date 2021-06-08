@@ -28,3 +28,5 @@ RMAmem v9 tgt version note
   .283 .282 + 5-deg probe
   .284 longer delay between cycles, 5-deg
   .285 .284 - delay
+  .286 half the training trials from .284  i.e., 2sec delay -> 0.8s delay
+  .287 put back seed to the original one. 

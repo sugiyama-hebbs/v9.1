@@ -24,4 +24,5 @@ cpb_te_9.25 <- 50 # cycles per block
 cpb_te_9.25_mod <- 40 # cycles per block
 cpb_te_9.27 <- 40 # cycles per block
 cpb_te_9.28 <- 48 # cycles per block
+cpb_te_9.286 <- 24 # cycles per block
 cpb_9.2 <- 10 # cycles per block
