@@ -21,3 +21,6 @@ RMAmem v9 tgt version note
 9.27 1S1M, include Null-S (in this case, score calculation will be always NLrn)
   .272 no score in S-null -> M
   .273 removed S-null
+  .274 longer M (higher z)
+  
+9.28 1S1M, varying rotation size (but "slope" of score changes remain fixed)
