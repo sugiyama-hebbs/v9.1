@@ -38,4 +38,8 @@ RMAmem v9 tgt version note
 9.29 1S1M, target jump (clamp)  
   .292 modified task difficulty for NLrn such that score roughly matches between the groups
   
-9.30  experiment version
+9.3  experiment version (depreciated, 9.292 took over after testing TaskErr clamp that appears to work)
+
+9.4 experiment version (identical to 9.292, just rename to avoid mixing with test versions)
+
+9.5 experiment version (identical to 9.2810, just rename to avoid mixing with test versions)
