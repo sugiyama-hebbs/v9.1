@@ -57,7 +57,7 @@ show_score <- rep(0,num_tri)
 
 # assign appropriate values to each type of trial
 rot_degree <- rot_size*rot_pattern
-show_arc[s_tri == 1] <- 4
+show_arc[s_tri == 1] <- 6
 show_cur[s_tri == 1] <- 2
 trial_type[s_tri == 1] <- 2
 trial_type[m_tri == 1] <- 3
