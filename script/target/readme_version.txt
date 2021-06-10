@@ -30,3 +30,9 @@ RMAmem v9 tgt version note
   .285 .284 - delay
   .286 half the training trials from .284  i.e., 2sec delay -> 0.8s delay
   .287 put back seed to the original one. 
+  
+  
+9.29 1S1M, target jump (clamp)  
+  .292 modified task difficulty for NLrn such that score roughly matches between the groups
+  
+9.30  experiment version
