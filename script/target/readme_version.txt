@@ -32,6 +32,7 @@ RMAmem v9 tgt version note
   .287 put back seed to the original one. 
   .288 alternative rotatin flip (z=0)
   .289 target jump (TaskErr clamp)
+  .2810 .289 + 0.8s delay between cycles
   
   
 9.29 1S1M, target jump (clamp)  
