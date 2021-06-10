@@ -30,6 +30,8 @@ RMAmem v9 tgt version note
   .285 .284 - delay
   .286 half the training trials from .284  i.e., 2sec delay -> 0.8s delay
   .287 put back seed to the original one. 
+  .288 alternative rotatin flip (z=0)
+  .289 target jump (TaskErr clamp)
   
   
 9.29 1S1M, target jump (clamp)  
