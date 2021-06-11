@@ -19,7 +19,7 @@ pos_tag <- ""
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 15 # visual rotation size (degree)
+rot_size <- 10 # visual rotation size (degree)
 
 s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_9.27) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_9.27) # flag m trial
