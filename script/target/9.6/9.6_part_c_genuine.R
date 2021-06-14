@@ -45,7 +45,7 @@ train_type <- rep(0,num_tri)
 
 # initialize
 show_arc <- rep(7,num_tri)
-show_cur <- rep(1,num_tri)  
+show_cur <- rep(2,num_tri)  
 trial_type <- rep(1,num_tri) 
 rot_degree <- rep(0,num_tri)
 show_score <- rep(0,num_tri)
