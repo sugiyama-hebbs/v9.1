@@ -17,7 +17,7 @@ pos_tag <- ""
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 15 # visual rotation size (degree)
+rot_size <- 10 # visual rotation size (degree)
 # tpc <- spc + mpc # trials per cycle
 
 ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
