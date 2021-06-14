@@ -21,13 +21,13 @@ pos_tag <- ""
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
 # rot_size <- 7 # visual rotation size (degree)
-ph0 = 15 # trials in phase 0 (Familiarization/Pre-training)
+ph0 = 0 # trials in phase 0 (Familiarization/Pre-training)
 ph1 = 0 # trials in phase 1 (initial washouts in main blocks)
 ph2 = 0 # trials in phase 2 (Pre-Probe)
 ph3 = 0 # trials in phase 3 (washouts before Train)
 ph4 = 0 # trials in phase 4 (Train)
 ph5 = 0 # trials in phase 5 (Post-Train Washout)
-ph6 = 0 # trials in phase 6 (Post-Probe)
+ph6 = 15 # trials in phase 6 (Post-Probe)
 ph7 = 0 # trials in phase 7 (visuomotor)
 ph8 = 0 # trials in phase 8 (reward-based)
 ph9 = 0 # trials in phase 9 (extra)
