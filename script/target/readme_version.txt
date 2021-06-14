@@ -1,4 +1,4 @@
-2021/06/04
+ 2021/06/04
 RMAmem v9 tgt version note
 
 
@@ -43,3 +43,6 @@ RMAmem v9 tgt version note
 9.4 experiment version (identical to 9.292, just rename to avoid mixing with test versions)
 
 9.5 experiment version (identical to 9.2810, just rename to avoid mixing with test versions)
+
+9.6 experiment version
+    modified from 9.4, mostly (but not limited to) familiarization, especially for solving a problem of drifting that is likely due to target jumping & clamping
