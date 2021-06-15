@@ -34,7 +34,7 @@ blk_phase <- c(rep(0,ph0),rep(1,ph1),rep(2,ph2),rep(3,ph3),rep(4,ph4),rep(5,ph5)
 num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
 
 
-min_score <- rep(0,num_tri)  
+min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
 # difficulty <- rep(1,num_tri)
 train_type <- rep(1,num_tri)
