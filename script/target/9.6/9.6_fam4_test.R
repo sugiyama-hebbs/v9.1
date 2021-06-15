@@ -37,13 +37,13 @@ num_tri <- ph0 + ph1 + ph2 + ph3 + ph4 + ph5 + ph6 + ph7 + ph8 + ph9
 min_score <- rep(0,num_tri)  
 max_score <- rep(0,num_tri) 
 # difficulty <- rep(1,num_tri)
-train_type <- rep(0,num_tri)
+train_type <- rep(1,num_tri)
 
 
 # initialize
 show_arc <- rep(7,num_tri)
 show_cur <- rep(2,num_tri)  
-trial_type <- rep(1,num_tri) 
+trial_type <- rep(2,num_tri) 
 show_score <- rep(1,num_tri)
 
 rot_pattern_tmp <- c(3,-3,3,-7,5,-3,7,-5,7,-5,5,-7,    
