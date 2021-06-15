@@ -21,7 +21,7 @@ source("script/target/subscript/set_taskwide_param.R") # set task-wide parameter
 
 rot_size <- 0 # visual rotation size (degree)
 
-cpb_fam_3 <- 30
+cpb_fam_3 <- 25
 
 s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_fam_3) # flag s trial
 m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_fam_3) # flag m trial
@@ -47,6 +47,7 @@ show_score <- rep(0,num_tri)
 # assign appropriate values to each type of trial
 rot_degree[s_tri == 1] <- rot_size
 show_arc[s_tri == 1] <- 7
+show_arc[(num_tri-9):num_tri] <- 6
 show_arc[m_tri == 1] <- 5
 show_cur[s_tri == 1] <- 2
 trial_type[s_tri == 1] <- 2
