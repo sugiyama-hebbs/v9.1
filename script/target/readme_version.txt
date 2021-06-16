@@ -46,3 +46,13 @@ RMAmem v9 tgt version note
 
 9.6 experiment version
     modified from 9.4, mostly (but not limited to) familiarization, especially for solving a problem of drifting that is likely due to target jumping & clamping
+    
+    
+9.7 pending experiment version
+    copied from 9.6, attempting to add a practice block for forming TE-reward mapping
+    (Also, Fam3 has not been fixed according to a discussion to make it "control" trials for Probe)
+    
+9.8 experiment version
+    almost identical to 9.6, except the two following points
+    a) Last part of Fam3 was changed to make it "control" trials for Probe (same contextual change, but no rotation)
+    b) 1st two Train block has no score (i.e., baseline)
