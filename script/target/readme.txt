@@ -23,7 +23,6 @@ RMAMem v8.1 target scripts
 # 18 = trial type: 1: Visuomotor, 2: S, 3: M, 4: Rwd-based
 # 19 = block phase: block phase. Probably not used in the task, but useful in analyses
 
-
 /////// the notes below are from the previous version. It will be edited as they are edited later //////// 
 
 To insert/add probe and other phases to train block as the task schedule is designed, each phase is generated separately at the beginning, and then later it's combined by another script.

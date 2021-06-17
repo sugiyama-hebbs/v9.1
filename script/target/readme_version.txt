@@ -56,3 +56,6 @@ RMAmem v9 tgt version note
     almost identical to 9.6, except the two following points
     a) Last part of Fam3 was changed to make it "control" trials for Probe (same contextual change, but no rotation)
     b) 1st two Train block has no score (i.e., baseline)
+    
+9.9 experiment version
+    copied from 9.8, and change the rotation pattern in Train to even raise z (flip every 20 cycles)
