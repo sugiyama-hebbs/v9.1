@@ -19,6 +19,11 @@ cpb <- 30 # cycles per block
 # for task-error version
 spc_te <- 1 # s trial per cycle
 mpc_te <- 1 # m trial per cycle
+
+spc_te_9.11 <- 1 # s trial per cycle
+mpc_te_9.11 <- 4 # m trial per cycle
+
+
 cpb_te <- 60 # cycles per block
 cpb_te_vary_rot <- 16 # cycles per block
 cpb_te_short <- 30 # cycles per block
@@ -28,4 +33,5 @@ cpb_te_9.25_mod <- 40 # cycles per block
 cpb_te_9.27 <- 40 # cycles per block
 cpb_te_9.28 <- 48 # cycles per block
 cpb_te_9.286 <- 24 # cycles per block
+cpb_te_9.11 <- 16
 cpb_9.2 <- 10 # cycles per block

@@ -59,3 +59,9 @@ RMAmem v9 tgt version note
     
 9.9 experiment version
     copied from 9.8, and change the rotation pattern in Train to even raise z (flip every 20 cycles)
+    
+9.10 experiment version
+    copied from 9.9, and change the rotation pattern back to 9.8 (flip every 10 cycles).
+    Modified Fam3 to random punishment
+    one extra Train block
+    Break after rotation in Probe, instead of the beginning of Intervention
