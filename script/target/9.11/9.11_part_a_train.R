@@ -113,6 +113,15 @@ seq.tgt_base <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                       show_arc, show_cur, rep(0,num_tri), train_type_base, rep(0,num_tri),
                       rep(0,num_tri), difficulty, trial_type, blk_phase, task_break)
 
+
+show_score_rand <- show_score
+show_score_rand[show_score_rand==1] <- 2
+
+seq.tgt_rand <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
+                     bval, channel_k11, channel_b11, gain, rot_degree,
+                     show_arc, show_cur, show_score_rand, train_type_lrn, min_score,
+                     max_score, difficulty_lrn, trial_type, blk_phase, task_break)
+
 dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
   write.table(seq.tgt_lrn,sprintf("script/target/output/part/%s/%d%s_%s%s_lrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
@@ -120,6 +129,8 @@ for (blk_tag in blk_tags){
   write.table(seq.tgt_nlrn,sprintf("script/target/output/part/%s/%d%s_%s%s_nlrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
   write.table(seq.tgt_base,sprintf("script/target/output/part/%s/%d%s_%s%s_baseline_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+              row.names = F, col.names = F, sep = " ")
+  write.table(seq.tgt_rand,sprintf("script/target/output/part/%s/%d%s_%s%s_rand_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
   
 }

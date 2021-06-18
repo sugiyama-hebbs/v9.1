@@ -7,6 +7,7 @@ seq_probe <- read.csv(sprintf("script/target/output/part/%s/0_probe_part_%s.txt"
 seq_lrn <- read.csv(sprintf("script/target/output/part/%s/0_train_lrn_%s.txt",version_id,version_id), header = F, sep=" ")
 seq_nlrn <- read.csv(sprintf("script/target/output/part/%s/0_train_nlrn_%s.txt",version_id,version_id), header = F, sep=" ")
 seq_base <- read.csv(sprintf("script/target/output/part/%s/0_train_baseline_%s.txt",version_id,version_id), header = F, sep=" ")
+seq_rand <- read.csv(sprintf("script/target/output/part/%s/0_train_rand_%s.txt",version_id,version_id), header = F, sep=" ")
 
 seq_lrn_break <- seq_lrn
 seq_lrn_break[1,20] = 1
@@ -19,15 +20,15 @@ seq_probe_break <- seq_probe
 seq_probe_break[31,20] <- 1 # hard coding. be careful about the # of pre-washouts and rotation trials
 
 seq.tgt_lrn <- rbind(seq_probe,
-                     seq_base,seq_probe_break,
-                     seq_base,seq_probe_break,
+                     seq_rand,seq_probe_break,
+                     seq_rand,seq_probe_break,
                      seq_lrn,seq_probe_break,
                      seq_lrn,seq_probe_break,
                      seq_lrn,seq_probe)
 
 seq.tgt_nlrn <- rbind(seq_probe,
-                      seq_base,seq_probe_break,
-                      seq_base,seq_probe_break,
+                      seq_rand,seq_probe_break,
+                      seq_rand,seq_probe_break,
                       seq_nlrn,seq_probe_break,
                       seq_nlrn,seq_probe_break,
                       seq_nlrn,seq_probe)
