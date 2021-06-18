@@ -27,7 +27,10 @@ tpc_9.11 <- 5 # trials per cycle
 
 # some hard coding. Be careful about the number of trials to be included/removed
 seq_lrn_last <- seq_lrn[(num_train_tri - num_cycle_to_extract*tpc_9.11 + 1):num_train_tri, ]
-seq_lrn_last[seq(2,num_cycle_to_extract*tpc_9.11,2),13] <- 2
+
+
+
+seq_lrn_last[(seq_lrn_last[,13] ==1),13] <- 2
 seq_probe_no_post_wo <- seq_probe[1:30, ]
 
 seq.fam3 <- rbind(seq_lrn_last,seq_probe_no_post_wo)
