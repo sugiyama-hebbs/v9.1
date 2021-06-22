@@ -65,3 +65,15 @@ RMAmem v9 tgt version note
     Modified Fam3 to random punishment
     one extra Train block
     Break after rotation in Probe, instead of the beginning of Intervention
+    
+9.11 experiment version
+    copied from 9.10. Everything is the same, except that it's 1S4M in Intervention
+
+9.12 experiment version
+    copied from 9.11. S-null -> Sptb -> M (similar to 9.22).
+    reduce pre-probe washout from 20 to 15
+
+9.13 experiment version
+    copied from 9.12 (but task-wise similar to 9.11). 
+    1S1M  x 10 -> null x 10 
+  
