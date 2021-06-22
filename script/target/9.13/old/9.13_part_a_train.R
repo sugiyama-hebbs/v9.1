@@ -22,11 +22,17 @@ rot_size <- 7 # visual rotation size (degree)
 
 # s_tri <- rep(c(rep(1,spc_te),rep(0,mpc_te)),cpb_te_9.12) # flag s trial
 # m_tri <- rep(c(rep(0,spc_te),rep(1,mpc_te)),cpb_te_9.12) # flag m trial
-s_tri <- c(rep(c(rep(1,spc_te),rep(0,mpc_te)),20),
-           rep(1,30))
+s_tri <- c(rep(c(rep(1,spc_te),rep(0,mpc_te)),10),
+           rep(1,10),
+           rep(c(rep(1,spc_te),rep(0,mpc_te)),10),
+           rep(1,10),
+           rep(c(rep(1,spc_te),rep(0,mpc_te)),10))
 
-s_tri_rot <- c(rep(c(rep(1,spc_te),rep(0,mpc_te)),20),
-           rep(0,30))
+s_tri_rot <- c(rep(c(rep(1,spc_te),rep(0,mpc_te)),10),
+           rep(0,10),
+           rep(c(rep(1,spc_te),rep(0,mpc_te)),10),
+           rep(0,10),
+           rep(c(rep(1,spc_te),rep(0,mpc_te)),10))
 
 m_tri <- (s_tri -1)*(-1) # flag m trial
 

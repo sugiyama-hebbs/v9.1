@@ -37,8 +37,9 @@ idx_rotation <- 10
 seq.fam3[,idx_rotation] <- 0 # remove rotation
 
 
-write.table(seq.fam3,sprintf("script/target/output/%s/4_fam3_%s.txt",version_id,version_id),
-            row.names = F, col.names = F, sep = " ")
+# NOTE: this was based on "old" train sequence, so don't overwrite
+# write.table(seq.fam3,sprintf("script/target/output/%s/4_fam3_%s.txt",version_id,version_id),
+#             row.names = F, col.names = F, sep = " ")
 
 
 
