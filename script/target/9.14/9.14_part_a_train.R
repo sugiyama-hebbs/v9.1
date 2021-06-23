@@ -139,10 +139,12 @@ seq.tgt_rand <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                      max_score, difficulty_lrn, trial_type, blk_phase, task_break)
 
 
+show_cur_clamp <- show_cur
+show_cur_clamp[s_tri_null == 1] <- 3
 
 seq.tgt_lrn_clamp <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
                            bval, channel_k11, channel_b11, gain, rot_degree,
-                           show_arc, show_cur/2*3, show_score, train_type_lrn, min_score,
+                           show_arc, show_cur_clamp, show_score, train_type_lrn, min_score,
                            max_score, difficulty_lrn, trial_type, blk_phase, task_break)
 
 
