@@ -43,6 +43,5 @@ write.table(seq.tgt_lrn,sprintf("script/target/output/%s/5a_train_lrn_%s.txt",ve
 write.table(seq.tgt_lrn_single_rot,sprintf("script/target/output/%s/6a_train_lrn_single_rot_%s.txt",version_id,version_id),
             row.names = F, col.names = F, sep = " ")
 
-write.table(seq.tgt_nlrn,sprintf("script/target/output/%s/5b_train_nlrn_%s.txt",version_id,version_id),
+write.table(seq.tgt_lrn,sprintf("script/target/output/%s/5a_train_lrn_%s.txt",version_id,version_id),
             row.names = F, col.names = F, sep = " ")
-
