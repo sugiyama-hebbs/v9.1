@@ -26,7 +26,7 @@ num_train_tri <- dim(seq_lrn)[1]
 # tpc_9.12 <- 7 # trials per cycle
 
 # some hard coding. Be careful about the number of trials to be included/removed
-seq_lrn_last <- seq_lrn[62:num_train_tri, ]
+seq_lrn_last <- seq_lrn[63:num_train_tri, ]
 
 
 
