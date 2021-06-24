@@ -49,7 +49,7 @@ blk_phase <- rep(4, num_tri)
 min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
 # difficulty <- rep(0.5,num_tri)
-difficulty <- rep(1,num_tri)
+difficulty <- rep(0.7,num_tri)
 
 train_type_lrn <- rep(1,num_tri) 
 train_type_nlrn <- rep(2,num_tri) 
