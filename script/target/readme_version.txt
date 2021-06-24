@@ -76,4 +76,11 @@ RMAmem v9 tgt version note
 9.13 experiment version
     copied from 9.12 (but task-wise similar to 9.11). 
     1S1M  x 10 -> null x 10 
-  
+    
+9.14 experiment version
+    copied from 9.12. Sclamp -> Sptb -> M (Both direction)
+    also has S-null -> Sptb -> M in one rotation direction
+    
+9.15 experiment version
+    copied from 9.14. Sclamp -> Sptb_clamp -> M (Both direction)
+    Score is based on delta-hand from Sptb to M instead of tgt - hand (performance) in M   
