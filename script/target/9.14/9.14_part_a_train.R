@@ -48,7 +48,8 @@ for (i in 1:cps){
 blk_phase <- rep(4, num_tri)
 min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
-difficulty <- rep(0.5,num_tri)
+# difficulty <- rep(0.5,num_tri)
+difficulty <- rep(1,num_tri)
 
 train_type_lrn <- rep(1,num_tri) 
 train_type_nlrn <- rep(2,num_tri) 
@@ -153,6 +154,10 @@ seq.tgt_nlrn_clamp <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                            show_arc, show_cur_clamp, show_score, train_type_nlrn, min_score,
                            max_score, difficulty_nlrn, trial_type, blk_phase, task_break)
 
+seq.tgt_base_clamp <- cbind(field, apply_field, t_radius, t_deg, wait_time,
+                      bval, channel_k11, channel_b11, gain, rot_degree,
+                      show_arc, show_cur_clamp, rep(0,num_tri), train_type_base, rep(0,num_tri),
+                      rep(0,num_tri), difficulty, trial_type, blk_phase, task_break)
 
 dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
@@ -168,7 +173,8 @@ for (blk_tag in blk_tags){
               row.names = F, col.names = F, sep = " ")
   write.table(seq.tgt_nlrn_clamp,sprintf("script/target/output/part/%s/%d%s_%s%s_nlrn_clamp_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
-  
+  write.table(seq.tgt_base_clamp,sprintf("script/target/output/part/%s/%d%s_%s%s_baseline_clamp_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+              row.names = F, col.names = F, sep = " ")  
 }
 
 plot(rot_degree, type ="l", main = cond, xlab = "Trial", ylab = "Rotation [deg]")

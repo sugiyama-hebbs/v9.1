@@ -9,6 +9,9 @@ seq_nlrn <- read.csv(sprintf("script/target/output/part/%s/0_train_nlrn_%s.txt",
 seq_base <- read.csv(sprintf("script/target/output/part/%s/0_train_baseline_%s.txt",version_id,version_id), header = F, sep=" ")
 seq_rand <- read.csv(sprintf("script/target/output/part/%s/0_train_rand_%s.txt",version_id,version_id), header = F, sep=" ")
 
+seq_lrn_clamp <- read.csv(sprintf("script/target/output/part/%s/0_train_lrn_clamp_%s.txt",version_id,version_id), header = F, sep=" ")
+seq_base_clamp <- read.csv(sprintf("script/target/output/part/%s/0_train_baseline_clamp_%s.txt",version_id,version_id), header = F, sep=" ")
+
 seq_lrn_break <- seq_lrn
 seq_lrn_break[1,20] = 1
 seq_nlrn_break <- seq_nlrn
@@ -31,17 +34,23 @@ seq.tgt_nlrn <- rbind(seq_probe,
                      seq_nlrn,seq_probe_break,
                      seq_nlrn,seq_probe)
 
+seq.tgt_lrn_clamp <- rbind(seq_probe,
+                     seq_base_clamp,seq_probe_break,
+                     seq_lrn_clamp,seq_probe_break,
+                     seq_lrn_clamp,seq_probe_break,
+                     seq_lrn_clamp,seq_probe)
+
 
 idx_rot <- 10
 seq.tgt_lrn_single_rot <- seq.tgt_lrn
 seq.tgt_lrn_single_rot[,idx_rot] <- abs(seq.tgt_lrn_single_rot[,idx_rot])
 
 
-write.table(seq.tgt_lrn,sprintf("script/target/output/%s/5a_train_lrn_%s.txt",version_id,version_id),
-            row.names = F, col.names = F, sep = " ")
+# write.table(seq.tgt_lrn,sprintf("script/target/output/%s/5a_train_lrn_%s.txt",version_id,version_id),
+#             row.names = F, col.names = F, sep = " ")
 
 write.table(seq.tgt_lrn_single_rot,sprintf("script/target/output/%s/6a_train_lrn_single_rot_%s.txt",version_id,version_id),
             row.names = F, col.names = F, sep = " ")
 
-write.table(seq.tgt_lrn,sprintf("script/target/output/%s/5a_train_lrn_%s.txt",version_id,version_id),
+write.table(seq.tgt_lrn_clamp,sprintf("script/target/output/%s/5a_train_lrn_clamp_%s.txt",version_id,version_id),
             row.names = F, col.names = F, sep = " ")

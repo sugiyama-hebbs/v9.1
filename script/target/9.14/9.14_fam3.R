@@ -10,7 +10,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 
 #### Set key values & parameters ####
 ## Filename
-version_id = "9.12" # version id
+version_id = "9.14" # version id
 pre_tag <- ""
 pos_tag <- ""
 
@@ -22,11 +22,11 @@ seq_probe <- read.csv(sprintf("script/target/output/part/%s/0_probe_part_%s.txt"
 seq_lrn <- read.csv(sprintf("script/target/output/part/%s/0_train_lrn_%s.txt",version_id,version_id), header = F, sep=" ")
 
 num_train_tri <- dim(seq_lrn)[1]
-num_cycle_to_extract <- 3
-tpc_9.12 <- 7 # trials per cycle
+# num_cycle_to_extract <- 3
+# tpc_9.12 <- 7 # trials per cycle
 
 # some hard coding. Be careful about the number of trials to be included/removed
-seq_lrn_last <- seq_lrn[(num_train_tri - num_cycle_to_extract*tpc_9.12 + 1):num_train_tri, ]
+seq_lrn_last <- seq_lrn[62:num_train_tri, ]
 
 
 
