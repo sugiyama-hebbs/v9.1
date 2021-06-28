@@ -36,10 +36,12 @@ num_tri <- tpc * cps
 
 s_tri <- rep(0,num_tri)
 m_tri <- rep(0,num_tri)
+rot_degree <- rep(0,num_tri)
 
 k <- 1
 for (i in 1:cps){
   s_tri[k:(k+s_tri_length[i]-1)] <- 1
+  rot_degree[k:(k+s_tri_length[i]-1)] <- rot_pattern[i]*rot_size
   m_tri[(k+s_tri_length[i]):((k+s_tri_length[i]+m_tri_length[i]-1))] <- 1
   k <- k+s_tri_length[i]+ m_tri_length[i]
 }
@@ -58,11 +60,11 @@ train_type_base <- rep(99,num_tri)
 show_arc <- rep(6,num_tri)
 show_cur <- rep(3,num_tri)  
 trial_type <- rep(0,num_tri) 
-rot_degree <- rep(0,num_tri)
+
 show_score <- rep(0,num_tri)
 
 # assign appropriate values to each type of trial
-rot_degree[s_tri ==1] <- rot_size*rot_pattern
+# rot_degree[s_tri ==1] <- rot_size*rot_pattern
 # show_arc[s_tri == 1] <- 6
 # show_arc[m_tri == 1] <- 5
 # show_cur[s_tri == 1] <- 3
