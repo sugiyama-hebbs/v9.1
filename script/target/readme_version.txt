@@ -85,3 +85,6 @@ RMAmem v9 tgt version note
     copied from 9.14. Sclamp -> Sptb_clamp -> M (Both direction)
     Score is based on delta-hand from Sptb to M instead of tgt - hand (performance) in M   
     .152 identical to the original version, except that more Sclamp trialb in each cycle (and less cycles in each block instead)
+
+9.160 test version
+    5 Sptb-clamp -> 5 M-dhand-avg (+ error clamp)
