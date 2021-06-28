@@ -8,7 +8,7 @@ set.seed(7) # Set a fix seed so that a sequence can be replicated 14
 
 #### Set key values & parameters ####
 ## Filename
-version_id = "9.160" # version id
+version_id = "9.16" # version id
 blk_tags <- 0 # block tag
 cond <- "probe_part" # condition. Also the main part of filename
 pre_tag <- ""
@@ -78,7 +78,7 @@ if (num_tri%%num_tmod != 0){
 } 
 
 t_deg_mod[1] = 15
-# t_deg_mod[21] = 0
+t_deg_mod[17] = 0
 t_deg_mod[num_tri] = -15
 
 t_deg_raw <- rep(t_deg_ref, num_tri)

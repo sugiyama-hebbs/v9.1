@@ -9,7 +9,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.160" # version id
+version_id = "9.16" # version id
 blk_tags <- 0 # block tag
 cond <- "train" # condition. Also the main part of filename
 pre_tag <- ""
@@ -121,6 +121,12 @@ seq.tgt_lrn <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                  show_arc, show_cur, show_score, train_type_lrn, min_score,
                  max_score, difficulty_lrn, trial_type, blk_phase, task_break)
 
+
+seq.tgt_lrn_5deg <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
+                     bval, channel_k11, channel_b11, gain, rot_degree/rot_size*5,
+                     show_arc, show_cur, show_score, train_type_lrn, min_score,
+                     max_score, difficulty_lrn, trial_type, blk_phase, task_break)
+
 seq.tgt_nlrn <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
                      bval, channel_k11, channel_b11, gain, rot_degree,
                      show_arc, show_cur, show_score, train_type_nlrn, min_score,
@@ -163,8 +169,10 @@ dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
   write.table(seq.tgt_lrn,sprintf("script/target/output/part/%s/%d%s_%s%s_lrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
-  write.table(seq.tgt_nlrn,sprintf("script/target/output/part/%s/%d%s_%s%s_nlrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+  write.table(seq.tgt_lrn_5deg,sprintf("script/target/output/part/%s/%d%s_%s%s_lrn_5deg_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
+  # write.table(seq.tgt_nlrn,sprintf("script/target/output/part/%s/%d%s_%s%s_nlrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+  #             row.names = F, col.names = F, sep = " ")
   write.table(seq.tgt_base,sprintf("script/target/output/part/%s/%d%s_%s%s_baseline_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
   # write.table(seq.tgt_rand,sprintf("script/target/output/part/%s/%d%s_%s%s_rand_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),

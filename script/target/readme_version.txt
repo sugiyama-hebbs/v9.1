@@ -22,22 +22,22 @@ RMAmem v9 tgt version note
   .272 no score in S-null -> M
   .273 removed S-null
   .274 longer M (higher z)
-  
+
 9.28 1S1M, varying rotation size (but "slope" of score changes remain fixed)
   .282 delay (0.8 -> 1sec) between cycles
   .283 .282 + 5-deg probe
   .284 longer delay between cycles, 5-deg
   .285 .284 - delay
   .286 half the training trials from .284  i.e., 2sec delay -> 0.8s delay
-  .287 put back seed to the original one. 
+  .287 put back seed to the original one.
   .288 alternative rotatin flip (z=0)
   .289 target jump (TaskErr clamp)
   .2810 .289 + 0.8s delay between cycles
-  
-  
-9.29 1S1M, target jump (clamp)  
+
+
+9.29 1S1M, target jump (clamp)
   .292 modified task difficulty for NLrn such that score roughly matches between the groups
-  
+
 9.3  experiment version (depreciated, 9.292 took over after testing TaskErr clamp that appears to work)
 
 9.4 experiment version (identical to 9.292, just rename to avoid mixing with test versions)
@@ -46,26 +46,26 @@ RMAmem v9 tgt version note
 
 9.6 experiment version
     modified from 9.4, mostly (but not limited to) familiarization, especially for solving a problem of drifting that is likely due to target jumping & clamping
-    
-    
+
+
 9.7 pending experiment version
     copied from 9.6, attempting to add a practice block for forming TE-reward mapping
     (Also, Fam3 has not been fixed according to a discussion to make it "control" trials for Probe)
-    
+
 9.8 experiment version
     almost identical to 9.6, except the two following points
     a) Last part of Fam3 was changed to make it "control" trials for Probe (same contextual change, but no rotation)
     b) 1st two Train block has no score (i.e., baseline)
-    
+
 9.9 experiment version
     copied from 9.8, and change the rotation pattern in Train to even raise z (flip every 20 cycles)
-    
+
 9.10 experiment version
     copied from 9.9, and change the rotation pattern back to 9.8 (flip every 10 cycles).
     Modified Fam3 to random punishment
     one extra Train block
     Break after rotation in Probe, instead of the beginning of Intervention
-    
+
 9.11 experiment version
     copied from 9.10. Everything is the same, except that it's 1S4M in Intervention
 
@@ -74,17 +74,20 @@ RMAmem v9 tgt version note
     reduce pre-probe washout from 20 to 15
 
 9.13 experiment version
-    copied from 9.12 (but task-wise similar to 9.11). 
-    1S1M  x 10 -> null x 10 
-    
+    copied from 9.12 (but task-wise similar to 9.11).
+    1S1M  x 10 -> null x 10
+
 9.14 experiment version
     copied from 9.12. Sclamp -> Sptb -> M (Both direction)
     also has S-null -> Sptb -> M in one rotation direction
-    
+
 9.15 experiment version
     copied from 9.14. Sclamp -> Sptb_clamp -> M (Both direction)
-    Score is based on delta-hand from Sptb to M instead of tgt - hand (performance) in M   
+    Score is based on delta-hand from Sptb to M instead of tgt - hand (performance) in M
     .152 identical to the original version, except that more Sclamp trialb in each cycle (and less cycles in each block instead)
 
 9.160 test version
     5 Sptb-clamp -> 5 M-dhand-avg (+ error clamp)
+
+9.16 experiment version
+    copied from 9.160 with some modifications
