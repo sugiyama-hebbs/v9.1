@@ -18,7 +18,7 @@ pos_tag <- ""
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 7 # visual rotation size (degree)
+rot_size <- 5 # visual rotation size (degree)
 
 # s_tri_null_length <- c(4,5,5,4,6,6,4,6,4,6,5,5) # its mean should be an integer
 s_tri_length <- rep(5,10) # its mean should be an integer
