@@ -92,3 +92,7 @@ RMAmem v9 tgt version note
 9.16 experiment version
     copied from 9.160 with some modifications
     162 another experiment version. All intervention has 5 degree rotation (insteaf of 3-degree in the 1st half of intervention in the original)
+    1630 test version. Intervention is the same as 162, but removed probes between intervention (This will be a control condition where potential confounding from experiencing washouts is controlled by removing washouts (and thereby probe as well, which cannot be done without washouts))
+    
+    
+
