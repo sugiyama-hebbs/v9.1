@@ -21,8 +21,10 @@ source("script/target/subscript/set_taskwide_param.R") # set task-wide parameter
 rot_size <- 5 # visual rotation size (degree)
 
 # s_tri_null_length <- c(4,5,5,4,6,6,4,6,4,6,5,5) # its mean should be an integer
-s_tri_length <- rep(5,10) # its mean should be an integer
-m_tri_length <- rep(5,10) # its mean should be an integer
+s_tri_length <- rep(5,4) # its mean should be an integer
+m_tri_length <- rep(5,4) # its mean should be an integer
+# /s_tri_length <- rep(5,10) # its mean should be an integer
+# m_tri_length <- rep(5,10) # its mean should be an integer
 
 cps <- length(s_tri_length) # number of cycles per 1 set
 
