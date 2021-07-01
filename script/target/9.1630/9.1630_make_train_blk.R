@@ -29,20 +29,22 @@ seq_base_break[1,20] = 1
 
 
 seq.tgt_mix1 <- rbind(seq_wo,
-                      seq_base,seq_base_break,
+                      seq_base,seq_base_break,seq_base_break,
+                      seq_lrn_break,seq_lrn_break,seq_lrn_break,
+                      seq_base_break,seq_base_break,seq_base_break,
+                      seq_nlrn_break,seq_nlrn_break,seq_nlrn_break,
+                      seq_base_break,seq_base_break,seq_base_break,
                       seq_lrn_break,seq_lrn_break,
-                      seq_base_break,seq_base_break,
-                      seq_nlrn_break,seq_nlrn_break,
-                      seq_base_break,seq_base_break,
-                      seq_lrn_break,seq_lrn_break)
-
-seq.tgt_mix2 <- rbind(seq_wo,
-                      seq_base,seq_base_break,
-                      seq_nlrn_break,seq_nlrn_break,
-                      seq_base_break,seq_base_break,
-                      seq_lrn_break,seq_lrn_break,
-                      seq_base_break,seq_base_break,
                       seq_nlrn_break,seq_nlrn_break)
+
+seq.tgt_mix2 <-  rbind(seq_wo,
+                       seq_base,seq_base_break,seq_base_break,
+                       seq_nlrn_break,seq_nlrn_break,seq_nlrn_break,
+                       seq_base_break,seq_base_break,seq_base_break,
+                       seq_lrn_break,seq_lrn_break,seq_lrn_break,
+                       seq_base_break,seq_base_break,seq_base_break,
+                       seq_nlrn_break,seq_nlrn_break,
+                       seq_lrn_break,seq_lrn_break)
 
 # seq.tgt_nlrn <- rbind(seq_probe,
 #                      seq_base,seq_probe_break,
