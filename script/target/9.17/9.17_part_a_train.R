@@ -28,7 +28,7 @@ null_tri_length <- rep(10,4) # its mean should be an integer
 
 cps <- length(s_tri_length) # number of cycles per 1 set
 
-rot_pattern <- rep(c(1,-1),cps/2)
+rot_pattern <- rep(c(1),cps)
 
 stopifnot(length(rot_pattern) == cps)
 

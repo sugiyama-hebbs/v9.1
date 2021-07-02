@@ -99,5 +99,6 @@ RMAmem v9 tgt version note
       a) 5S -> 5M -> 10 Null, reference memory from last 5 Null
       b) 10 Sclamp in before rotation trials in Probe (between Pre-washout, more precisely speaking)
       c) 10 Sclamp right after rotation in Probe to measure decay
+      d) only one rotation direction in Intervention
     
 
