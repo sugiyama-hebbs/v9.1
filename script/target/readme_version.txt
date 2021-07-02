@@ -94,5 +94,10 @@ RMAmem v9 tgt version note
     162 another experiment version. All intervention has 5 degree rotation (insteaf of 3-degree in the 1st half of intervention in the original)
     1630 experiment version. Intervention is the same as 162, but removed probes between intervention (This will be a control condition where potential confounding from experiencing washouts is controlled by removing washouts (and thereby probe as well, which cannot be done without washouts))
     
+9.17 experiment version
+     copied from 9.162. Some modifications:
+      a) 5S -> 5M -> 10 Null, reference memory from last 5 Null
+      b) 10 Sclamp in before rotation trials in Probe (between Pre-washout, more precisely speaking)
+      c) 10 Sclamp right after rotation in Probe to measure decay
     
 
