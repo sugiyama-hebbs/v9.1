@@ -10,7 +10,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 
 #### Set key values & parameters ####
 ## Filename
-version_id = "9.1630" # version id
+version_id = "9.1631" # version id
 pre_tag <- ""
 pos_tag <- ""
 
@@ -26,11 +26,14 @@ num_train_tri <- dim(seq_lrn)[1]
 # tpc_9.12 <- 7 # trials per cycle
 
 # some hard coding. Be careful about the number of trials to be included/removed
-seq_lrn_last <- seq_lrn[((num_train_tri-49):num_train_tri), ]
+seq_lrn_last <- seq_lrn
 
 
+idx_show_score <- 13
+idx_show_cur <- 12
 
-seq_lrn_last[(seq_lrn_last[,13] ==1),13] <- 2
+seq_lrn_last[(seq_lrn_last[idx_show_score] ==1),idx_show_score] <- 2 # change to random score
+seq_lrn_last[(seq_lrn_last[,idx_show_cur] == 3 & (seq_lrn_last[idx_show_score] == 0)),idx_show_cur] <- 2 # change to genuine target instead of clamping
 
 seq.fam3 <- rbind(seq_lrn_last)
 
