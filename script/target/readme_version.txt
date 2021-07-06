@@ -101,4 +101,9 @@ RMAmem v9 tgt version note
       c) 10 Sclamp right after rotation in Probe to measure decay
       d) only one rotation direction in Intervention
     
+    .172 the following modifications from the original version
+    a)  change pre-clamp to normal washouts
+    b) change Sjump to Snull in Intervention
+    c) target-jump in the 5 trials before rotations in Probe
+    d) narrow target direcion in Post-clamp in Probe
 
