@@ -105,6 +105,9 @@ RMAmem v9 tgt version note
     .172 the following modifications from the original version
     a)  change pre-clamp to normal washouts
     b) change Sjump to Snull in Intervention
-    c) target-jump in the 5 trials before rotations in Probe
+    c) target-jump in the 5 trials before rotations in Probe (mistakenly not implemented. Will be tested in the next version)
     d) narrow target direcion in Post-clamp in Probe
-
+    
+    .173 the following changes from the .172
+    a) target-jump in the 5 trials before rotations in Probe 
+    b) task schedule has longer and less # of blocks
