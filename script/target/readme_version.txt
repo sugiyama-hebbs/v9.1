@@ -111,3 +111,7 @@ RMAmem v9 tgt version note
     .173 the following changes from the .172
     a) target-jump in the 5 trials before rotations in Probe 
     b) task schedule has longer and less # of blocks
+    
+    .174 the following changes from the .173
+    a) modified # of S and M trial (1S3M, for example)
+    b) allow overshoot for Learn (no punishing)
