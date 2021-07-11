@@ -94,22 +94,22 @@ RMAmem v9 tgt version note
     162 another experiment version. All intervention has 5 degree rotation (insteaf of 3-degree in the 1st half of intervention in the original)
     1630 experiment version. Intervention is the same as 162, but removed probes between intervention (This will be a control condition where potential confounding from experiencing washouts is controlled by removing washouts (and thereby probe as well, which cannot be done without washouts))
     1631 experiment version. Pretty much the same as 1630. Just adjusting task schedule based on 1630 (which is rather a test version)
-    
+    1632 experiment version. Task-wise the same as 1631, but the schedule is changed such that blocks are organized as sets of washout -> NR->(N)Lrn->NR.
 9.17 experiment version
      copied from 9.162. Some modifications:
       a) 5S -> 5M -> 10 Null, reference memory from last 5 Null
       b) 10 Sclamp in before rotation trials in Probe (between Pre-washout, more precisely speaking)
       c) 10 Sclamp right after rotation in Probe to measure decay
       d) only one rotation direction in Intervention
-    
+
     .172 the following modifications from the original version
     a)  change pre-clamp to normal washouts
     b) change Sjump to Snull in Intervention
     c) target-jump in the 5 trials before rotations in Probe (mistakenly not implemented. Will be tested in the next version)
     d) narrow target direcion in Post-clamp in Probe
-    
+
     .173 the following changes from the .172
-    a) target-jump in the 5 trials before rotations in Probe 
+    a) target-jump in the 5 trials before rotations in Probe
     b) task schedule has longer and less # of blocks
     
     .174 the following changes from the .173
