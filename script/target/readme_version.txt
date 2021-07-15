@@ -116,3 +116,7 @@ RMAmem v9 tgt version note
     a) modified # of S and M trial (1S3M, for example)
     b) allow overshoot for Learn (no punishing)
     .1741 identical to .174, except that # of S is increased from 1 to 3 per cycle
+    .1742 identical to .174, except that # of S is increased from 1 to 5 per cycle
+    
+    
+    .17401, .17411, .17421 identical to the corresponding sub-version. Changed task sequence to make it from within to between
