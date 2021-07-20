@@ -20,7 +20,7 @@ RMAMem v8.1 target scripts
 # 15 = minimum_score: min score that can be earned in a trial
 # 16 = maximum_score: max score that can be earned in a trial
 # 17 = difficulty: constant defining how much point is reduced per 10% of learning wrt last experienced rotation (e.g., if this is 3 and you're 20% off from the ideal learning amount (100% in Lrn and 0% in NLrn), you get 3 x 20%/10% = 6 points less)
-# 18 = trial type: 1: Visuomotor, 2: S, 3: M, 4: Rwd-based, 5: S-count-error (for Lrn/NLrn-dhand-avg), 6: M-count-error (for Lrn/NLrn-dhand-avg)
+# 18 = trial type: 1: Visuomotor, 2: S, 3: M, 4: Rwd-based, 5: S-count-error (for Lrn/NLrn-dhand-avg), 6: M-count-error (for Lrn/NLrn-dhand-avg), 7: S-count-error, reset before update, 8: M-count-error, reset before update.
 # 19 = block phase: block phase. Probably not used in the task, but useful in analyses
 # 20 = task_break. insert a pause as break at the BEGINNING of a trial with this set to 1
 /////// the notes below are from the previous version. It will be edited as they are edited later //////// 

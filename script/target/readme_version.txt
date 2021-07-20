@@ -118,5 +118,8 @@ RMAmem v9 tgt version note
     .1741 identical to .174, except that # of S is increased from 1 to 3 per cycle
     .1742 identical to .174, except that # of S is increased from 1 to 5 per cycle
     
+        .1750 test version with the following changes from the .173
+        S and M are alternating instead of consecutive. There are two test versions, one taking reference memory in S trial and the other taking the average of S and last M (to alleviate effects of motor noise in scoring)
+    
     
     .17401, .17411, .17421 identical to the corresponding sub-version. Changed task sequence to make it from within to between
