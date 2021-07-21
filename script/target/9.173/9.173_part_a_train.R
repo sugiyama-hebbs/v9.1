@@ -58,7 +58,7 @@ max_score <- rep(0,num_tri)
 # difficulty <- rep(0.5,num_tri)
 difficulty <- rep(0.7,num_tri)
 
-train_type_lrn <- rep(21,num_tri) 
+train_type_lrn <- rep(31,num_tri) 
 train_type_nlrn <- rep(22,num_tri) 
 train_type_base <- rep(99,num_tri)
 

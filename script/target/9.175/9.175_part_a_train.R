@@ -9,9 +9,9 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.1750" # version id
+version_id = "9.175" # version id
 blk_tags <- 0 # block tag
-cond <- "train_ref_avg_ms" # condition. Also the main part of filename
+cond <- "train" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
@@ -75,7 +75,7 @@ show_arc[null_tri == 1] <- 7
 show_cur[null_tri == 1] <- 2
 trial_type[null_tri == 1] <- 2
 trial_type[s_tri == 1] <- 9
-trial_type[m_tri == 1] <- 8
+trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
 

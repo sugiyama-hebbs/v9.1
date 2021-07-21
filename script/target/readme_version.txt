@@ -111,15 +111,15 @@ RMAmem v9 tgt version note
     .173 the following changes from the .172
     a) target-jump in the 5 trials before rotations in Probe
     b) task schedule has longer and less # of blocks
-    
+
     .174 the following changes from the .173
     a) modified # of S and M trial (1S3M, for example)
     b) allow overshoot for Learn (no punishing)
     .1741 identical to .174, except that # of S is increased from 1 to 3 per cycle
     .1742 identical to .174, except that # of S is increased from 1 to 5 per cycle
-    
-        .1750 test version with the following changes from the .173
-        S and M are alternating instead of consecutive. There are two test versions, one taking reference memory in S trial and the other taking the average of S and last M (to alleviate effects of motor noise in scoring)
-    
-    
+
     .17401, .17411, .17421 identical to the corresponding sub-version. Changed task sequence to make it from within to between
+
+    .1750 test version with the following changes from the .173
+    S and M are alternating instead of consecutive. There are two test versions, one taking reference memory in S trial and the other taking the average of S and last M (to alleviate effects of motor noise in scoring)
+    .175 experiment version. Selected the test version with reference memory in S trial

@@ -57,7 +57,7 @@ max_score <- rep(0,num_tri)
 # difficulty <- rep(0.5,num_tri)
 difficulty <- rep(0.7,num_tri)
 
-train_type_lrn <- rep(21,num_tri) 
+train_type_lrn <- rep(31,num_tri) 
 train_type_nlrn <- rep(22,num_tri) 
 train_type_base <- rep(99,num_tri)
 
@@ -74,7 +74,7 @@ show_arc[null_tri == 1] <- 7
 # show_arc[m_tri == 1] <- 5
 show_cur[null_tri == 1] <- 2
 trial_type[null_tri == 1] <- 2
-trial_type[s_tri == 1] <- 5
+trial_type[s_tri == 1] <- 9
 trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
