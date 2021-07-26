@@ -9,7 +9,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.173" # version id
+version_id = "9.1731" # version id
 blk_tags <- 0 # block tag
 cond <- "train" # condition. Also the main part of filename
 pre_tag <- ""
@@ -37,6 +37,7 @@ tpc <- mean(s_tri_length) + mean(m_tri_length)+ mean(null_tri_length)
 num_tri <- tpc * cps
 
 s_tri <- rep(0,num_tri)
+s_tri_init <- rep(0,num_tri)
 m_tri <- rep(0,num_tri)
 null_tri <- rep(0,num_tri)
 null_tri_count_error <- rep(0,num_tri)
@@ -45,8 +46,9 @@ rot_degree <- rep(0,num_tri)
 k <- 1
 for (i in 1:cps){
   null_tri[k:(k+null_tri_length[i]-1)] <- 1
-  null_tri_count_error[(k+null_tri_length[i]/2):(k+null_tri_length[i]-1)] <- 1
+  # null_tri_count_error[(k+null_tri_length[i]/2):(k+null_tri_length[i]-1)] <- 1
   s_tri[(k+null_tri_length[i]):(k+null_tri_length[i]+s_tri_length[i]-1)] <- 1
+  s_tri_init[(k+null_tri_length[i])] <- 1
   rot_degree[(k+null_tri_length[i]):(k+null_tri_length[i]+s_tri_length[i]-1)]  <- rot_pattern[i]*rot_size
   m_tri[((k+null_tri_length[i]+s_tri_length[i])):((k+null_tri_length[i]+s_tri_length[i]+m_tri_length[i]-1))]  <- 1
   k <- k+null_tri_length[i]+s_tri_length[i]+ m_tri_length[i]
@@ -75,7 +77,7 @@ show_arc[null_tri == 1] <- 7
 # show_arc[m_tri == 1] <- 5
 show_cur[null_tri == 1] <- 2
 trial_type[s_tri == 1 | null_tri == 1] <- 2
-trial_type[null_tri_count_error == 1] <- 5
+trial_type[s_tri_init == 1] <- 5
 trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0

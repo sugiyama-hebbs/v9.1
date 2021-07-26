@@ -8,7 +8,7 @@ set.seed(21) # Set a fix seed so that a sequence can be replicated 6
 
 #### Set key values & parameters ####
 ## Filename
-version_id = "9.173" # version id
+version_id = "9.1731" # version id
 blk_tags <- 0 # block tag
 cond <- "probe_part" # condition. Also the main part of filename
 pre_tag <- ""

@@ -1,6 +1,6 @@
 # make a train block from parts
 
-version_id <- "9.173"
+version_id <- "9.1731"
 
 # seq_genuine <- read.csv(sprintf("script/target/output/part/%s/0_genuine_part_%s.txt",version_id,version_id), header = F, sep=" ")
 seq_probe <- read.csv(sprintf("script/target/output/part/%s/0_probe_part_%s.txt",version_id,version_id), header = F, sep=" ")
