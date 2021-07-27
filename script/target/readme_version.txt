@@ -124,4 +124,4 @@ RMAmem v9 tgt version note
 
     .1750 test version with the following changes from the .173
     S and M are alternating instead of consecutive. There are two test versions, one taking reference memory in S trial and the other taking the average of S and last M (to alleviate effects of motor noise in scoring)
-    .175 experiment version. Selected the test version with reference memory in S trial
+    .175 experiment version. Selected the test version with reference memory in S trial * NLrn allows undershoot from S37. Original NLrn sequence is stored in "old" subdirectory
