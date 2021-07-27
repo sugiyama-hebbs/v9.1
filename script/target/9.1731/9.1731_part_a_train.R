@@ -57,8 +57,8 @@ for (i in 1:cps){
 blk_phase <- rep(4, num_tri)
 min_score <- rep(-20,num_tri)  
 max_score <- rep(0,num_tri) 
-# difficulty <- rep(0.5,num_tri)
-difficulty <- rep(0.7,num_tri)
+difficulty <- rep(0.5,num_tri)
+# difficulty <- rep(0.7,num_tri)
 
 train_type_lrn <- rep(31,num_tri) 
 train_type_nlrn <- rep(22,num_tri) 
