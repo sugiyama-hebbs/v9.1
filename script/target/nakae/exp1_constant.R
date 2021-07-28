@@ -85,7 +85,7 @@ channel_k11 <- rep(0,num_tri)  # no FF, so 0 bvalue
 channel_b11 <- rep(0,num_tri)  # no FF, so 0 bvalue
 gain <- rep(0,num_tri)  # no FF, so 0 bvalue
 task_break <- rep(0,num_tri) # temporarily
-
+task_break[c(ph0,(ph0+ph1+ph2),(ph0+ph1+ph2+ph3+ph4))] <- 1
 # combine
 
 seq.tgt <- cbind(field, apply_field, t_radius, t_deg, wait_time, 
