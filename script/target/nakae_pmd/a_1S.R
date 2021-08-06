@@ -128,7 +128,7 @@ seq.tgt <- cbind(field, apply_field, t_radius, t_deg, wait_time,
 
 dir.create(file.path("script/target/output/",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
-  write.table(seq.tgt,sprintf("script/target/output/part/%s/%d%s_%s%s_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+  write.table(seq.tgt,sprintf("script/target/output/%s/%d%s_%s%s_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
 }
 
