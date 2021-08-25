@@ -10,11 +10,9 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-<<<<<<< HEAD
+
 version_id = "9.1752" # version id
-=======
-version_id = "9.175" # version id
->>>>>>> 54e371e9663ec3567727b89684f56d22eee8d432
+
 blk_tags <- 3 # block tag
 cond <- "fam_2" # condition. Also the main part of filename
 pre_tag <- ""
