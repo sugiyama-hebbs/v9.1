@@ -126,4 +126,6 @@ RMAmem v9 tgt version note
     S and M are alternating instead of consecutive. There are two test versions, one taking reference memory in S trial and the other taking the average of S and last M (to alleviate effects of motor noise in scoring)
     .175 experiment version. Selected the test version with reference memory in S trial * NLrn allows undershoot from S37. Original NLrn sequence is stored in "old" subdirectory
     
-    .1752 test version. Remove cursor from M trial.
+    .1752 experiment version. Remove cursor from M trial.
+    
+     .1752 experiment version. Remove cursor from M trial (same as .1752), and score calculation is in "absolute" scale (whereas it is relative to last hand direction in the original).
