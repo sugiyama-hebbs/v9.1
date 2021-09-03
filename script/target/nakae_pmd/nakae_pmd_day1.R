@@ -137,19 +137,22 @@ task_break[1] <- 1
 #                      max_score, difficulty_nlrn, trial_type, blk_phase, task_break, tms)
 
 num_sessions <- 10
+tms_order_raw <- as.numeric(t(do.call("rbind",lapply(rep(10,num_sessions),sample))))
+tms_order <- rep(tms_order_raw, each = tpc)
+
 
 seq.tgt_base_raw <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                       bval, channel_k11, channel_b11, gain, rot_degree,
                       show_arc, show_cur, rep(0,num_tri), train_type_base, rep(0,num_tri),
-                      rep(0,num_tri), difficulty, trial_type, blk_phase, task_break, tms)
+                      rep(0,num_tri), difficulty, trial_type, blk_phase, task_break, tms, tms)
 
-tms_order <- as.numeric(t(do.call("rbind",lapply(rep(10,num_sessions),sample))))
+
 
 
 seq.tgt_base <- do.call("rbind", replicate(num_sessions, seq.tgt_base_raw, simplify = FALSE))
 
 seq.tgt_base[1,20] <- 0 # no break in the first trial, of course
-seq.tgt_base[tms == 1, 21] <- tms_order
+seq.tgt_base[, 22] <- tms_order
 
 # dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 dir.create(file.path("script/target/output/",version_id), showWarnings = F)
