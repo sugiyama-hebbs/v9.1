@@ -80,7 +80,7 @@ trial_type[m_tri == 1] <- 3
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
 
-tmod_v <- seq(-15,15,3) # set of modification values on target direction
+tmod_v <- seq(-12,12,6) # set of modification values on target direction
 num_tmod <- length(tmod_v) # number of modifying direction
 
 # Randomize within each "chunk" so that there won't be a chunk of the same rotation by chance after randomization 
@@ -144,7 +144,7 @@ tms_order <- rep(tms_order_raw, each = tpc)
 seq.tgt_base_raw <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                       bval, channel_k11, channel_b11, gain, rot_degree,
                       show_arc, show_cur, rep(0,num_tri), train_type_base, rep(0,num_tri),
-                      rep(0,num_tri), difficulty, trial_type, blk_phase, task_break, tms, tms)
+                      rep(0,num_tri), difficulty, trial_type, blk_phase, task_break, tms, rep(0,num_tri))
 
 
 
@@ -153,6 +153,20 @@ seq.tgt_base <- do.call("rbind", replicate(num_sessions, seq.tgt_base_raw, simpl
 
 seq.tgt_base[1,20] <- 0 # no break in the first trial, of course
 seq.tgt_base[, 22] <- tms_order
+
+
+for (tms_loc in 1:10){
+  seq.tgt_base[(tms_order == tms_loc & (seq.tgt_base[,"tms"] == 1 | seq.tgt_base[,"trial_type"] == 3)),"t_deg"] <- 90+rep(c(sample(tmod_v),sample(tmod_v)), each = 2)
+}
+
+
+# tmp <- as.data.frame(seq.tgt_base) %>% 
+#   mutate(tri = row_number()) %>% 
+#   dplyr::filter(rot_degree != 0 | trial_type == 3) %>% 
+#   dplyr::rename(tms_order = V22) %>% 
+#   dplyr::select(tri, t_deg,rot_degree,trial_type,tms, tms_order) %>% 
+#   arrange(tms_order,t_deg)
+
 
 # dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 dir.create(file.path("script/target/output/",version_id), showWarnings = F)
