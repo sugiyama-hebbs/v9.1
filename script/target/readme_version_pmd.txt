@@ -8,3 +8,5 @@ nakae_pmd2
     10null, 1s1m x 5
     4 locations
 
+  2.1
+    flipping rotation in the midway of the main part (after the 4th block)

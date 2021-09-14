@@ -9,16 +9,16 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "nakae_pmd2" # version id
-blk_tags <- 0 # block tag
-cond <- "day1" # condition. Also the main part of filename
+version_id = "nakae_pmd2.1" # version id
+blk_tags <- 5 # block tag
+cond <- "day1b" # condition. Also the main part of filename
 pre_tag <- ""
 pos_tag <- ""
 
 ## Task-related
 source("script/target/subscript/set_taskwide_param.R") # set task-wide parameters
 
-rot_size <- 5 # visual rotation size (degree)
+rot_size <- -5 # visual rotation size (degree)
 
 # s_tri_null_length <- c(4,5,5,4,6,6,4,6,4,6,5,5) # its mean should be an integer
 
@@ -136,7 +136,7 @@ task_break[1] <- 1
 #                      show_arc, show_cur, show_score, train_type_nlrn, min_score,
 #                      max_score, difficulty_nlrn, trial_type, blk_phase, task_break, tms)
 
-num_sessions <- 8
+num_sessions <- 4
 num_location <- 4
 tms_order_raw <- as.numeric(t(do.call("rbind",lapply(rep(4,num_sessions),sample))))
 tms_order <- rep(tms_order_raw, each = tpc)
