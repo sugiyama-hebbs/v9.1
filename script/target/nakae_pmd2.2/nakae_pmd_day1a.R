@@ -9,7 +9,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "nakae_pmd2.1" # version id
+version_id = "nakae_pmd2.2" # version id
 blk_tags <- 4 # block tag
 cond <- "day1" # condition. Also the main part of filename
 pre_tag <- ""
@@ -193,7 +193,7 @@ write.table(seq.tgt_base,sprintf("script/target/output/%s/%d%s_%s%s_baseline_%s.
 # }
 
 # plot(rot_degree, type ="l", main = cond, xlab = "Trial", ylab = "Rotation [deg]")
-
+plot(seq.tgt_base[,10], type ="l", main = cond, xlab = "Trial", ylab = "Rotation [deg]")
 
 
 
