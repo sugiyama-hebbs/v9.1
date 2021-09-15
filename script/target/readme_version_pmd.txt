@@ -9,4 +9,7 @@ nakae_pmd2
     4 locations
 
   2.1
-    flipping rotation in the midway of the main part (after the 4th block)
+    flipping rotation in the midway of the main part (after the 4th block) - not used
+    
+  2.2
+    flipping rotation alternatingly. Also, TMS in every odd trial. (including nulls)
