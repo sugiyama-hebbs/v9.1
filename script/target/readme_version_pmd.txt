@@ -13,3 +13,7 @@ nakae_pmd2
     
   2.2
     flipping rotation alternatingly. Also, TMS in every odd trial. (including nulls)
+
+nakae_pmd2
+    3 locations
+    adjusted a delay period to display target before go signal, as in Vyas 2020.
