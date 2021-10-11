@@ -76,8 +76,8 @@ show_arc[m_tri == 1] <- 8
 # show_cur[null_tri == 1] <- 2
 show_cur[m_tri == 1] <- 0
 trial_type[null_tri == 1] <- 2
-trial_type[s_tri == 1] <- 9
-trial_type[m_tri == 1] <- 3
+trial_type[s_tri == 1] <- 6
+trial_type[m_tri == 1] <- 8
 show_score[m_tri == 1] <- 1
 # show_score[m_tri == 1] <- 0
 
