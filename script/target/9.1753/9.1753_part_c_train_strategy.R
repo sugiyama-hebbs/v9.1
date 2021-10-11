@@ -9,7 +9,7 @@ set.seed(2) # Set a fix seed so that a sequence can be replicated
 #### Set key values & parameters ####
 ## Filename
 # format: sprintf("script/target/output/%d%s_%s%s_%s.txt",blk_tag,pre_tag,cond,pos_tag,version_id)
-version_id = "9.1754" # version id
+version_id = "9.1753" # version id
 blk_tags <- 0 # block tag
 cond <- "train" # condition. Also the main part of filename
 pre_tag <- ""
@@ -63,7 +63,7 @@ train_type_base <- rep(99,num_tri)
 
 # initialize
 show_arc <- rep(6,num_tri)
-show_cur <- rep(2,num_tri)  
+show_cur <- rep(3,num_tri)  
 trial_type <- rep(0,num_tri) 
 
 show_score <- rep(0,num_tri)
@@ -73,7 +73,7 @@ show_score <- rep(0,num_tri)
 show_arc[null_tri == 1] <- 7
 show_arc[m_tri == 1] <- 8
 # show_arc[m_tri == 1] <- 5
-# show_cur[null_tri == 1] <- 2
+show_cur[null_tri == 1] <- 2
 show_cur[m_tri == 1] <- 0
 trial_type[null_tri == 1] <- 2
 trial_type[s_tri == 1] <- 9
@@ -129,10 +129,13 @@ seq.tgt_lrn <- cbind(field, apply_field, t_radius, t_deg, wait_time,
                  show_arc, show_cur, show_score, train_type_lrn, min_score,
                  max_score, difficulty_lrn, trial_type, blk_phase, task_break)
 
+
+
 dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
   write.table(seq.tgt_lrn,sprintf("script/target/output/part/%s/%d%s_%s%s_strategy_lrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
+
 }
 
 plot(rot_degree, type ="l", main = cond, xlab = "Trial", ylab = "Rotation [deg]")
