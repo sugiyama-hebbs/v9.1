@@ -13,7 +13,15 @@ RMAMem v8.1 target scripts
 # 8 = channel_B11: channel force (not really used. maybe just remove)
 # 9 = gain for spring force during movement. Usually set to 0  (except "pseudo" isometric force task, maybe)
 # 10 = rot_degree: cursor rotation in degree
-# 11 = show_arc: whether to present an arc instead of a point target. 2 will remove the arc at movement initiation. 3 will give aiming markers on the sides. 4~5 gives a brief flash target. 6 will give a target jumping to the cursor direction (claming) at crossing. 7 gives a target flash + non-jumping (genuine) target at crossing * currently hide target in M trial, which is not an ideal control (7/6/2021) that will be changed. 8-9: another values that give aiming markers on the side(s). [8: no target at cross (for M). 9: jumped target]
+# 11 = show_arc: whether to present an arc instead of a point target. 
+      2 will remove the arc at movement initiation. 
+      3 will give aiming markers on the sides. 
+      4~5 gives a brief flash target. 
+      6 will give a target jumping to the cursor direction (claming) at crossing. 
+      7 gives a target flash + non-jumping (genuine) target at crossing * currently hide target in M trial, which is not an ideal control (7/6/2021) that will be changed. 
+      8-9: another values that give aiming markers on the side(s). [8: no target at cross (for M). 9: jumped target]
+      10: genuine target + aiming marker + endpoint feedback
+      11: genuine target + endpoint feedback
 # 12 = show_cur: whether to show cursor. 0=no, 1=online, 2=slit (specifically for this task, depreciated),3=clamp
 # 13 = show_score: whether to show score. 2 gives random punishment
 # 14 = training_type: type of meta-learning training. 1: Lrn, 2: NLrn, 3: Reward-based (not a meta-learning training, but rather a control condition). 11: Lrn-dhand, 12: NLrn-dhand Baseline: 99, 21: Lrn-dhand-avg, 22:NLrn-dhand-avg. 31-Lrn-dhand-avg-allow_overshoot (not punishing overshoot), 32-NLrn-dhand-avg-allow_undershoot (not punishing undershoot), 41-Lrn-allow_overshoot (not punishing overshoot), 42-NLrn-allow_undershoot (not punishing undershoot)
