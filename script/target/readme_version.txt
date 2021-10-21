@@ -131,3 +131,4 @@ RMAmem v9 tgt version note
      .1753 experiment version. Remove cursor from M trial (same as .1752), and score calculation is in "absolute" scale (whereas it is relative to last hand direction in the original).
      
      .1754 experiment version. Remove cursor clamping (+ rotation) in intervention.
+     .17542 experiment version. modified from .1754 for aiming strategy condition (control group)
