@@ -72,7 +72,7 @@ show_score <- rep(0,num_tri)
 # rot_degree[s_tri ==1] <- rot_size*rot_pattern
 show_arc[null_tri == 1] <- 11
 show_arc[s_tri == 1] <- 11
-show_arc[m_tri == 1] <- 8
+show_arc[m_tri == 1] <- 6
 # show_arc[m_tri == 1] <- 5
 # show_cur[null_tri == 1] <- 2
 show_cur[m_tri == 1] <- 0
@@ -132,7 +132,7 @@ seq.tgt_lrn <- cbind(field, apply_field, t_radius, t_deg, wait_time,
 
 dir.create(file.path("script/target/output/part",version_id), showWarnings = F)
 for (blk_tag in blk_tags){
-  write.table(seq.tgt_lrn,sprintf("script/target/output/part/%s/%d%s_%s%s_strategy1_lrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
+  write.table(seq.tgt_lrn,sprintf("script/target/output/part/%s/%d%s_%s%s_strategy2_no_marker_lrn_%s.txt",version_id,blk_tag,pre_tag,cond,pos_tag,version_id),
               row.names = F, col.names = F, sep = " ")
 }
 
